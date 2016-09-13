@@ -6,7 +6,7 @@ body {
 }
 
 #main {
-    background-color: #eee;
+    background-color: #ffffff;
     padding: 4px;
     margin: 0;
 }
@@ -81,6 +81,12 @@ body {
 
 .form-control{
     border-radius: 125px;
+}
+
+.navbar-brandstyle{
+    margin: 15px 15px 15px 15px;
+    font-family:'Comic Sans MS'; 
+    font-size:75px;
 }
 
 

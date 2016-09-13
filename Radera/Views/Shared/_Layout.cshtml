@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/bootswatch/superhero/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootswatch/cerulean/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/site.css" rel="stylesheet" />
 
@@ -18,32 +18,32 @@
                 <span id="username">@User.FirstName</span>
             }*@
         <ul class="nav">
-            <li class="active"><a href="~/Views/Home/Index">Home</a></li>
-            <li><a href="~/Views/Home/About">About</a></li>
-            <li><a href="~/Views/Home/Contact">Contact</a></li>
+            <li class="active"><a href="/Home/Index">Home</a></li>
+            <li><a href="/Home/About">About</a></li>
+            <li><a href="/Home/Contact">Contact</a></li>
         </ul>
     </div>
 
     <div id="wrapper">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
-                <div class="nav navbar-nav navbar-left">
+                <ul class="nav navbar-nav navbar-left">
 
-                    <div class="form-group" id="radera-navbar">
+                    <li class="form-group" id="radera-navbar">
                         <button id="menuToggle" class="btn btn-primary form-control">
                             <i class="glyphicon glyphicon-chevron-left"></i>
                         </button>                        
-                    </div>
-                </div>
-
-                <div class="nav navbar-nav navbar-right">
-                    <div class="form-group" id="radera-searchbar">
-                        <label class="glyphicon glyphicon-search">Search</label>
+                    </li>
+                </ul>
+                <a class="navbar-brand navbar-brandstyle" href="/Home/Index">Radera</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="form-group" id="radera-searchbar">
+                        <label class="glyphicon glyphicon-search" style="font-size:medium; color:white;">Search</label>
                         <input name="searchInput" class="form-control" />
                         @*<span validation></span>*@
-                    </div>
+                    </li>
 
-                </div>
+                </ul>
             </div>
         </nav>
         <div id="main" class="container-fluid">
