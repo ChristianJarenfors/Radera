@@ -108,7 +108,7 @@ body {
     text-align: center;
     margin:0.5px;
 }
-.buttonn {
+.button {
     color: #fff!important;
     text-shadow: 0 1px 2px #693100;
     filter: dropshadow(color=#693100,offx=1,offy=2);

@@ -14,4 +14,7 @@ app.config(function ($routeProvider) {
         when('/contact', {
             templateUrl: 'angular/views/contact.html'
         })
+        .when('/auctions', {
+            templateUrl: 'angular/views/auctions.html'
+        })
 })
