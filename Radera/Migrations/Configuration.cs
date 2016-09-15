@@ -230,79 +230,81 @@ namespace Radera.Migrations
             #region ExtraBid Bike
             Bid Bike2 = new Bid
             {
-                BidAmount = context.Auctions.Single(a => a.Title == Bluebike.Title).Bids.OrderBy(x => x.BidAmount).First().BidAmount + 112,
+                BidAmount = context.Auctions.Single(a => a.Title == Bluebike.Title).Bids.OrderBy(x => x.BidAmount).Last().BidAmount + 112,
                 Date = new DateTime(2016, 08, 04),
                 BidOwner = context.Users.Single(u => u.Username == "Litos"),
                 ThisAuction = context.Auctions.Single(a => a.Title == Bluebike.Title)
             };
+            if (!context.Bids.Any(b => b.BidAmount == Bike2.BidAmount && b.BidOwner.Username == Bike2.BidOwner.Username && b.Date == Bike2.Date && b.ThisAuction.Title == Bike2.ThisAuction.Title))
+            {
+                context.Bids.AddOrUpdate(Bike2);
+            }
+            context.SaveChanges();
             Bid Bike3 = new Bid
             {
-                BidAmount = context.Auctions.Single(a => a.Title == Bluebike.Title).Bids.OrderBy(x => x.BidAmount).First().BidAmount + 112,
+                BidAmount = context.Auctions.Single(a => a.Title == Bluebike.Title).Bids.OrderBy(x => x.BidAmount).Last().BidAmount + 112,
                 Date = new DateTime(2016, 08, 05),
                 BidOwner = context.Users.Single(u => u.Username == "Toni"),
                 ThisAuction = context.Auctions.Single(a => a.Title == Bluebike.Title)
             };
+            if (!context.Bids.Any(b => b.BidAmount == Bike3.BidAmount && b.BidOwner.Username == Bike3.BidOwner.Username && b.Date == Bike3.Date && b.ThisAuction.Title == Bike3.ThisAuction.Title))
+            {
+                context.Bids.AddOrUpdate(Bike3);
+            }
+            context.SaveChanges();
             Bid Bike4 = new Bid
             {
-                BidAmount = context.Auctions.Single(a => a.Title == Bluebike.Title).Bids.OrderBy(x => x.BidAmount).First().BidAmount + 112,
+                BidAmount = context.Auctions.Single(a => a.Title == Bluebike.Title).Bids.OrderBy(x => x.BidAmount).Last().BidAmount + 112,
                 Date = new DateTime(2016, 08, 06),
                 BidOwner = context.Users.Single(u => u.Username == "Cooly"),
                 ThisAuction = context.Auctions.Single(a => a.Title == Bluebike.Title)
             };
+            if (!context.Bids.Any(b => b.BidAmount == Bike4.BidAmount && b.BidOwner.Username == Bike4.BidOwner.Username && b.Date == Bike4.Date && b.ThisAuction.Title == Bike4.ThisAuction.Title))
+            {
+                context.Bids.AddOrUpdate(Bike4);
+            }
+            context.SaveChanges();
             #endregion
             #region ExtraBid Sofa
             Bid Sofa2 = new Bid
             {
-                BidAmount = context.Auctions.Single(a => a.Title == ComfySofa.Title).Bids.OrderBy(x => x.BidAmount).First().BidAmount + 112,
+                BidAmount = context.Auctions.Single(a => a.Title == ComfySofa.Title).Bids.OrderBy(x => x.BidAmount).Last().BidAmount + 112,
                 Date = new DateTime(2016, 08, 03),
                 BidOwner = context.Users.Single(u => u.Username == "Cooly"),
                 ThisAuction = context.Auctions.Single(a => a.Title == ComfySofa.Title)
-            };
+            }; if (!context.Bids.Any(b => b.BidAmount == Sofa2.BidAmount && b.BidOwner.Username == Sofa2.BidOwner.Username && b.Date == Sofa2.Date && b.ThisAuction.Title == Sofa2.ThisAuction.Title))
+            {
+                context.Bids.AddOrUpdate(Sofa2);
+            }
+            context.SaveChanges();
             Bid Sofa3 = new Bid
             {
-                BidAmount = context.Auctions.Single(a => a.Title == ComfySofa.Title).Bids.OrderBy(x => x.BidAmount).First().BidAmount + 112,
+                BidAmount = context.Auctions.Single(a => a.Title == ComfySofa.Title).Bids.OrderBy(x => x.BidAmount).Last().BidAmount + 112,
                 Date = new DateTime(2016, 08, 03),
                 BidOwner = context.Users.Single(u => u.Username == "Litos"),
                 ThisAuction = context.Auctions.Single(a => a.Title == ComfySofa.Title)
             };
+            if (!context.Bids.Any(b => b.BidAmount == Sofa3.BidAmount && b.BidOwner.Username == Sofa3.BidOwner.Username && b.Date == Sofa3.Date && b.ThisAuction.Title == Sofa3.ThisAuction.Title))
+            {
+                context.Bids.AddOrUpdate(Sofa3);
+            }
+            context.SaveChanges();
             #endregion
             #region ExtraBid Tv
             Bid Apple2 = new Bid
             {
-                BidAmount = context.Auctions.Single(a => a.Title == AppleTV.Title).Bids.OrderBy(x => x.BidAmount).First().BidAmount + 112,
+                BidAmount = context.Auctions.Single(a => a.Title == AppleTV.Title).Bids.OrderBy(x => x.BidAmount).Last().BidAmount + 112,
                 Date = new DateTime(2016, 08, 03),
                 BidOwner = context.Users.Single(u => u.Username == "Toni"),
                 ThisAuction = context.Auctions.Single(a => a.Title == AppleTV.Title)
             };
-            #endregion 
-            #region Extrabids added
-            if (!context.Bids.Any(b => b == Bike1))
-            {
-                context.Bids.AddOrUpdate(Bike1);
-            }
-            if (!context.Bids.Any(b => b == Bike2))
-            {
-                context.Bids.AddOrUpdate(Bike2);
-            }
-            if (!context.Bids.Any(b => b == Bike3))
-            {
-                context.Bids.AddOrUpdate(Bike3);
-            }
-            if (!context.Bids.Any(b => b == Sofa2))
-            {
-                context.Bids.AddOrUpdate(Sofa2);
-            }
-            if (!context.Bids.Any(b => b == Sofa3))
-            {
-                context.Bids.AddOrUpdate(Sofa3);
-            }
-            if (!context.Bids.Any(b => b == Apple2))
+            if (!context.Bids.Any(b => b.BidAmount == Apple2.BidAmount && b.BidOwner.Username == Apple2.BidOwner.Username && b.Date == Apple2.Date && b.ThisAuction.Title == Apple2.ThisAuction.Title))
             {
                 context.Bids.AddOrUpdate(Apple2);
             }
             #endregion
-            
-            
+
+
         }
     }
 }
