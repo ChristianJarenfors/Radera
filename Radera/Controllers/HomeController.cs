@@ -21,6 +21,10 @@ namespace Radera.Controllers
         {
             return View();
         }
-       
+        public ActionResult LiveAuction()
+        {
+            return View();
+        }
+
     }
 }
