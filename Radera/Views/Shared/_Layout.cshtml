@@ -8,6 +8,7 @@
     <link href="~/Content/bootswatch/cerulean/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/site.css" rel="stylesheet" />
+    <link href="~/Content/RegisterLogin.css" rel="stylesheet" />
 
 </head>
 <body ng-app="app">
@@ -20,9 +21,17 @@
         <ul class="nav">
             @*<li class="active"><a href="/Home/Index">Home</a></li>*@
             <li><a href="/#/index">Home</a></li>
+            <li><a href="/Account/Register">Login/Register</a></li>
             <li><a href="/#/about">About</a></li>
             <li><a href="/#/contact">Contact</a></li>
             <li><a href="/#/auctions">Auctions</a></li>
+
+            @if ((bool)Session["loginStatus"] == true)
+            {
+                <li><a class="animate" href="~/Default/Login">Register/Login</a></li>
+                <li><a class="animate" href="~/Account/Logout">Logout</a></li>
+            }
+            
         </ul>
     </div>
 
@@ -63,6 +72,7 @@
     <script type="text/javascript" src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/MyScripts/site.js" type="text/javascript"></script>
+    <script src="~/MyScripts/RegisterLogin.js" type="text/javascript"></script>
 
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-route.min.js"></script>
