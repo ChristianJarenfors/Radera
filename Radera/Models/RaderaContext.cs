@@ -8,7 +8,7 @@ namespace Radera.Models
 {
     public class RaderaContext: DbContext
     {
-        public RaderaContext(): base("RaderaDB")
+        public RaderaContext(): base()
         {
 
         }
@@ -37,6 +37,8 @@ namespace Radera.Models
 
             modelBuilder.Entity<Auction>()
                 .HasMany(c => c.Comments);
+
+        
 
         }
     }

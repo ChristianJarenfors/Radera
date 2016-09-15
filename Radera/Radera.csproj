@@ -181,10 +181,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuctionAddController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609151107217_InitialCreate.cs" />
+    <Compile Include="Migrations\201609151107217_InitialCreate.Designer.cs">
+      <DependentUpon>201609151107217_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609151109314_update.cs" />
+    <Compile Include="Migrations\201609151109314_update.Designer.cs">
+      <DependentUpon>201609151109314_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609151114083_update1.cs" />
+    <Compile Include="Migrations\201609151114083_update1.Designer.cs">
+      <DependentUpon>201609151114083_update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609151125503_removed tags from auction.cs" />
+    <Compile Include="Migrations\201609151125503_removed tags from auction.Designer.cs">
+      <DependentUpon>201609151125503_removed tags from auction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Bid.cs" />
@@ -210,6 +228,20 @@
   <ItemGroup>
     <Folder Include="angular\controllers\" />
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609151107217_InitialCreate.resx">
+      <DependentUpon>201609151107217_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609151109314_update.resx">
+      <DependentUpon>201609151109314_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609151114083_update1.resx">
+      <DependentUpon>201609151114083_update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609151125503_removed tags from auction.resx">
+      <DependentUpon>201609151125503_removed tags from auction.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

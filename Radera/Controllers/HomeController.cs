@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Radera.Models;
 
 namespace Radera.Controllers
 {
@@ -14,6 +15,7 @@ namespace Radera.Controllers
         }
         public ActionResult Contact()
         {
+ 
             return View();
         }
         // GET: Home
@@ -25,6 +27,7 @@ namespace Radera.Controllers
         {
             return View();
         }
+
 
     }
 }
