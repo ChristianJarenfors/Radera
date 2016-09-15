@@ -195,21 +195,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609141334212_InitialCreate.cs" />
-    <Compile Include="Migrations\201609141334212_InitialCreate.Designer.cs">
-      <DependentUpon>201609141334212_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609150804262_Försök att rädda lite data.cs" />
-    <Compile Include="Migrations\201609150804262_Försök att rädda lite data.Designer.cs">
-      <DependentUpon>201609150804262_Försök att rädda lite data.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609151009309_Startprice added to Auktions.cs" />
-    <Compile Include="Migrations\201609151009309_Startprice added to Auktions.Designer.cs">
-      <DependentUpon>201609151009309_Startprice added to Auktions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609151114345_isAdmin added to Users.cs" />
-    <Compile Include="Migrations\201609151114345_isAdmin added to Users.Designer.cs">
-      <DependentUpon>201609151114345_isAdmin added to Users.cs</DependentUpon>
+    <Compile Include="Migrations\201609151217087_Number uno.cs" />
+    <Compile Include="Migrations\201609151217087_Number uno.Designer.cs">
+      <DependentUpon>201609151217087_Number uno.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
@@ -231,7 +219,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\LiveAuction.cshtml" />
     <Content Include="Views\Auction\Index.cshtml" />
-    <Content Include="Views\Auction\ExampleÁuction.cshtml" />
+    <Content Include="Views\Auction\ExampleAuction.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -242,6 +230,11 @@
   <ItemGroup>
     <Folder Include="angular\controllers\" />
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609151217087_Number uno.resx">
+      <DependentUpon>201609151217087_Number uno.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

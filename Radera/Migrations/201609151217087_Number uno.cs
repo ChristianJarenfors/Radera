@@ -3,7 +3,7 @@ namespace Radera.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Numberuno : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,10 @@ namespace Radera.Migrations
                 c => new
                     {
                         AuctionID = c.Int(nullable: false, identity: true),
+                        Title = c.String(),
+                        Description = c.String(),
                         Picture = c.String(),
+                        StartPrice = c.Int(nullable: false),
                         PriceBuyout = c.Int(nullable: false),
                         AuctionOwner_UserID = c.Int(nullable: false),
                     })
@@ -34,6 +37,7 @@ namespace Radera.Migrations
                         Mail = c.String(),
                         PhoneNumber = c.Int(nullable: false),
                         Address = c.String(),
+                        isAdmin = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.UserID);
             

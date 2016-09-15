@@ -7,13 +7,13 @@ namespace Radera.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class isAdminaddedtoUsers : IMigrationMetadata
+    public sealed partial class Numberuno : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(isAdminaddedtoUsers));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Numberuno));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609151114345_isAdmin added to Users"; }
+            get { return "201609151217087_Number uno"; }
         }
         
         string IMigrationMetadata.Source

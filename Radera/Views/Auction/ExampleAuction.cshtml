@@ -1,0 +1,25 @@
+﻿@model Radera.Models.Auction
+
+@{
+    ViewBag.Title = Model.Title;
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4" style="background-image:url(@Model.Picture)">
+            <h1>@Model.Title</h1>
+            <h3>@Model.AuctionOwner.Username</h3>
+            </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <h3>@Model.Description</h3>
+            <br />
+            <h4>Buyout: @Model.PriceBuyout <button>Buyout</button></h4>
+            <br />
+            <h4>Startprice: @Model.StartPrice</h4>
+        </div>
+    </div>
+
+</div>
+
+
