@@ -1,6 +1,11 @@
-﻿<div class="row">
+﻿@using Radera.Models;
+<div class="row">
     <h2 class="col-lg-offset-4 col-lg-6">Welcome!</h2>
     <div ng-view></div>
 </div>
+@{ 
+    RaderaContext RC = new RaderaContext();
+    RC.Bids.Count();
+}
 
 

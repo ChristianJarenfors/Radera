@@ -13,10 +13,19 @@ namespace Radera.Controllers
         public ActionResult Index()
         {
             RaderaContext RC = new RaderaContext();
-            List<Auction) Auctionlist = RC.Auctions.ToList().Sort(Comparison<Auction>)
-            return View();
+            List<Auction> Auctionlist = RC.Auctions.ToList();
+            //Auctionlist.ToList().Sort((x, y) => x.Bids.Count().CompareTo(y.Bids.Count()));
+            //Auctionlist.ToList().Sort(CompareByMostBids);
+            return View(Auctionlist.GetRange(0,4));
         }
-        private static int CompareDinosByMostBids(Auction x, Auction y)
+        public ActionResult ExampleÁuction()
+        {
+            RaderaContext RC = new RaderaContext();
+            return View(RC.Auctions.Select(a => a.AuctionOwner.FirstName.ToLower() == "adam"));
+        }
+
+
+        private static int CompareByMostBids(Auction x, Auction y)
         {
             if (x == null)
             {
@@ -65,4 +74,6 @@ namespace Radera.Controllers
                     }
                 }
             }
+        }
+    }
 }
