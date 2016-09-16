@@ -17,6 +17,7 @@ namespace Radera.Models
         public string Mail { get; set; }
         public int PhoneNumber { get; set; }
         public string Address { get; set; }
+        public bool isAdmin { get; set; }
 
         public virtual IList<Auction> UserAuctions { get; set; }
         public virtual IList<Bid> UserBids { get; set; }
