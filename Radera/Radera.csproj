@@ -216,7 +216,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Bid.cs" />
@@ -248,6 +247,7 @@
   <ItemGroup>
     <Folder Include="angular\controllers\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Migrations\" />
     <Folder Include="Views\Auctions\" />
   </ItemGroup>
   <PropertyGroup>
