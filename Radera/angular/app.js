@@ -54,6 +54,18 @@ app.controller("auctionsCtrl", function ($scope, $http) {
                 console.log(result);
             })
     }
+    $scope.findauction = function (auction) {
+
+        debugger;
+        $http.post("/Auctions/AuctionbyID", { id: auction })
+            .success(function (result) {
+                debugger;
+                $scope.auctionList = result;
+            })
+            .error(function (result) {
+                console.log(result);
+            })
+    }
 
 
 });

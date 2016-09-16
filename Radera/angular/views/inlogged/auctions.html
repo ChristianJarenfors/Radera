@@ -2,7 +2,7 @@
     <h1>Auctions</h1>
     <div class="panel panel-primary panel-heading col-lg-3 col-md-4 col-sm-5 col-xs-10" ng-repeat="auction in auctionList">
         <div class="panel-heading">
-            <h3 class="panel-title">Best book ever! :)</h3>
+            <h3 class="panel-title">{{auction.Title}}</h3>
         </div>
 
         <div class="panel-body">
@@ -10,7 +10,7 @@
                 <input class="form-control" type="hidden" name="auction.AuctionID" ng-model="auction.AuctionID" value="{{auction.AuctionID}}" />
             </div>
             <div class="form-group">
-                <center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>
+                <center><img class="picture" src="{{auction.Picture}}"></center>
             </div>
             <div class="form-group">
                 <center><h2 id="time">03:45:05</h2></center>
@@ -24,6 +24,7 @@
             </div>
             <div>
                 <center><input class="btn btn-success" type="submit" value="Bid" name="btnBid" ng-click="auctionBid(auction)" /></center>
+                <input class="btn btn-success" type="submit" value="Bid" name="btnBid" ng-click="findauction(auction.AuctionID)" />
             </div>
         </div>
     </div>

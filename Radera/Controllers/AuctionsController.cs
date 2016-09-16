@@ -18,7 +18,23 @@ namespace Radera.Controllers
         {
             return View();
         }
+        public ActionResult AuctionbyID(int id)
+        {
+            RaderaContext RC = new RaderaContext();
+            Auction Auctions = RC.Auctions.Where(a => a.AuctionOwner.UserID == id).First();
 
+
+            //return Json(listOfAuctions, JsonRequestBehavior.AllowGet);
+
+            var serializedData = JsonConvert.SerializeObject(Auctions, Formatting.None,
+                new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+
+            return Content(serializedData, "application/json");
+            
+        }
         public ActionResult GetAuctions()
         {
             RaderaContext RC = new RaderaContext();
