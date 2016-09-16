@@ -25,10 +25,10 @@ namespace Radera.Controllers
             {
                 //All data is for test. Replace with User input.
                 AuctionOwner = thisUser,
-                PriceStart = 100,
+                StartPrice = 100,
                 PriceBuyout = 1000, 
-                AuctionTitle = "Cykel",
-                AuctionDescription = "Röd barncykel",
+                Title = "Cykel",
+                Description = "Röd barncykel",
 
             });
             RC.SaveChanges();

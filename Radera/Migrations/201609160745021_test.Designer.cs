@@ -7,13 +7,13 @@ namespace Radera.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class removedtagsfromauction : IMigrationMetadata
+    public sealed partial class test : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(removedtagsfromauction));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(test));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609151125503_removed tags from auction"; }
+            get { return "201609160745021_test"; }
         }
         
         string IMigrationMetadata.Source

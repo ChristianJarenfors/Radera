@@ -101,6 +101,7 @@
     <Content Include="angular\views\about.html" />
     <Content Include="angular\views\auctions.html" />
     <Content Include="angular\views\contact.html" />
+    <Content Include="angular\views\Auction.html" />
     <Content Include="angular\views\index.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -140,10 +141,12 @@
     <Content Include="Content\bootswatch\yeti\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\RegisterLogin.css" />
     <Content Include="Content\site.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="MyScripts\RegisterLogin.js" />
     <Content Include="MyScripts\site.js" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
@@ -169,6 +172,9 @@
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular-resource.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-3.0.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -176,31 +182,26 @@
     <Content Include="Scripts\jquery-3.0.0.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuctionController.cs" />
     <Compile Include="Controllers\AuctionAddController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609151107217_InitialCreate.cs" />
-    <Compile Include="Migrations\201609151107217_InitialCreate.Designer.cs">
-      <DependentUpon>201609151107217_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609151109314_update.cs" />
-    <Compile Include="Migrations\201609151109314_update.Designer.cs">
-      <DependentUpon>201609151109314_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609151114083_update1.cs" />
-    <Compile Include="Migrations\201609151114083_update1.Designer.cs">
-      <DependentUpon>201609151114083_update1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609151125503_removed tags from auction.cs" />
-    <Compile Include="Migrations\201609151125503_removed tags from auction.Designer.cs">
-      <DependentUpon>201609151125503_removed tags from auction.cs</DependentUpon>
+    <Compile Include="Migrations\201609160745021_test.cs" />
+    <Compile Include="Migrations\201609160745021_test.Designer.cs">
+      <DependentUpon>201609160745021_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
@@ -218,6 +219,12 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\LiveAuction.cshtml" />
+    <Content Include="Views\Auction\Index.cshtml" />
+    <Content Include="Views\Auction\ExampleÁuction.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -230,17 +237,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609151107217_InitialCreate.resx">
-      <DependentUpon>201609151107217_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609151109314_update.resx">
-      <DependentUpon>201609151109314_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609151114083_update1.resx">
-      <DependentUpon>201609151114083_update1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609151125503_removed tags from auction.resx">
-      <DependentUpon>201609151125503_removed tags from auction.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609160745021_test.resx">
+      <DependentUpon>201609160745021_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
