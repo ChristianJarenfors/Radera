@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Radera.Models;
+@{
     bool isInlogged = Session["isInlogged"] == null ? false : (bool)Session["isInlogged"];
 }
 
@@ -15,5 +16,9 @@
 
 
 </div>
+@{ 
+    RaderaContext RC = new RaderaContext();
+    RC.Bids.Count();
+}
 
 

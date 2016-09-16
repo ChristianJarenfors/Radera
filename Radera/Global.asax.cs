@@ -14,10 +14,14 @@ namespace Radera
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
-
-        protected void Session_Start(object sender, EventArgs e)
+        protected void Session_Start()
         {
-            Session["isInlogged"] = false;
+            ///Id for the current logged in user
+            Session["currentUserId"] = "";
+            ///Name for the current logged in user
+            Session["currentUserName"] = "";
+            ///Logged in or not
+            Session["loginStatus"] = false;
         }
     }
 }
