@@ -16,43 +16,17 @@ namespace Radera.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register()
+        public ActionResult Register(User newUser)
         {
-            string regUsername = Request["registerUsername"];
-            string regEmail = Request["registerEmail"];
-            string regPassword = Request["registerPassword"];
-            string regFirstName = Request["registerFirstName"];
-            string regLastName = Request["registerLastName"];
-            string regCity = Request["registerCity"];
-            string regAdress = Request["registerAdress"];
-            var regPhonenumber = Convert.ToInt32(System.Web.HttpContext.Current.Request.Form["registerPhoneNumber"]);
-            if (regUsername == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                using (RaderaContext context = new RaderaContext())
-                {
-                    User regUser = new User()
-                    {
-                        Username = regUsername,
-                        Mail = regEmail,
-                        Password = regPassword,
-                        FirstName = regFirstName,
-                        LastName = regLastName,
-                        City = regCity,
-                        Address = regAdress,
-                        PhoneNumber = regPhonenumber
-                    };
-                    context.Users.Add(regUser);
-                    context.SaveChanges();
+            RaderaContext RC = new RaderaContext();
 
-                }
-                return RedirectToAction("Index", "Home");
+            if (ModelState.IsValid)
+            {
+                RC.Users.Add(newUser);
+                RC.SaveChanges();
             }
 
-            ///Connect to database to find user
+            return RedirectToAction("Index", "Home");
 
         }
 
@@ -69,12 +43,13 @@ namespace Radera.Controllers
                 Session["isInlogged"] = true;
                 Session["firstName"] = user.FirstName;
 
-                return RedirectToAction("Index", "Home");
+                return Redirect("/#/auctionsinlogged");
             }
 
-            return RedirectToAction("Index", "Home");            
+            return Redirect("/#/index");            
 
         }
+
         public ActionResult Logout()
         {
             //resets the session value

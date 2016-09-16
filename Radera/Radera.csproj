@@ -215,10 +215,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609151111000_first.cs" />
-    <Compile Include="Migrations\201609151111000_first.Designer.cs">
-      <DependentUpon>201609151111000_first.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201609160747027_third.cs" />
     <Compile Include="Migrations\201609160747027_third.Designer.cs">
       <DependentUpon>201609160747027_third.cs</DependentUpon>
@@ -251,9 +247,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609151111000_first.resx">
-      <DependentUpon>201609151111000_first.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609160747027_third.resx">
       <DependentUpon>201609160747027_third.cs</DependentUpon>
     </EmbeddedResource>
