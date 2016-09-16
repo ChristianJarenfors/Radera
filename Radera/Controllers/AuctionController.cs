@@ -18,10 +18,10 @@ namespace Radera.Controllers
             //Auctionlist.ToList().Sort(CompareByMostBids);
             return View(Auctionlist.GetRange(0,4));
         }
-        public ActionResult ExampleÁuction()
+        public ActionResult ExampleAuction()
         {
             RaderaContext RC = new RaderaContext();
-            return View(RC.Auctions.Select(a => a.AuctionOwner.FirstName.ToLower() == "adam"));
+            return View(RC.Auctions.Where(a => a.AuctionOwner.Username.ToLower() == "balin").First());
         }
 
 

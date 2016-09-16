@@ -199,6 +199,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609151217087_Number uno.cs" />
+    <Compile Include="Migrations\201609151217087_Number uno.Designer.cs">
+      <DependentUpon>201609151217087_Number uno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Bid.cs" />
@@ -218,8 +223,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\LiveAuction.cshtml" />
     <Content Include="Views\Auction\Index.cshtml" />
-    <Content Include="Views\Auction\ExampleÁuction.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Auction\ExampleAuction.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -231,6 +235,11 @@
     <Folder Include="angular\controllers\" />
     <Folder Include="App_Data\" />
     <Folder Include="Migrations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609151217087_Number uno.resx">
+      <DependentUpon>201609151217087_Number uno.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
