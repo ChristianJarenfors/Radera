@@ -216,6 +216,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609160818294_ett.cs" />
+    <Compile Include="Migrations\201609160818294_ett.Designer.cs">
+      <DependentUpon>201609160818294_ett.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Bid.cs" />
@@ -247,8 +252,12 @@
   <ItemGroup>
     <Folder Include="angular\controllers\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Migrations\" />
     <Folder Include="Views\Auctions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609160818294_ett.resx">
+      <DependentUpon>201609160818294_ett.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
