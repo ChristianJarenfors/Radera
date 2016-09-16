@@ -21,7 +21,7 @@ namespace Radera
             ///Name for the current logged in user
             Session["currentUserName"] = "";
             ///Logged in or not
-            Session["loginStatus"] = false;
+            Session["isInlogged"] = false;
         }
     }
 }

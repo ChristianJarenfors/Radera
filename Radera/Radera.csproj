@@ -212,13 +212,16 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201609151111000_first.cs" />
     <Compile Include="Migrations\201609151111000_first.Designer.cs">
       <DependentUpon>201609151111000_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609160747027_third.cs" />
+    <Compile Include="Migrations\201609160747027_third.Designer.cs">
+      <DependentUpon>201609160747027_third.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
@@ -236,12 +239,6 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\LiveAuction.cshtml" />
-    <Content Include="Views\Auction\Index.cshtml" />
-    <Content Include="Views\Auction\ExampleÁuction.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -252,11 +249,13 @@
   <ItemGroup>
     <Folder Include="angular\controllers\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Auctions\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201609151111000_first.resx">
       <DependentUpon>201609151111000_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609160747027_third.resx">
+      <DependentUpon>201609160747027_third.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

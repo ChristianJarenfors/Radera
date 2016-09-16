@@ -24,6 +24,7 @@ namespace Radera.Controllers
             RaderaContext RC = new RaderaContext();
             List<Auction> listOfAuctions = RC.Auctions.ToList();
 
+
             //return Json(listOfAuctions, JsonRequestBehavior.AllowGet);
 
             var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,
