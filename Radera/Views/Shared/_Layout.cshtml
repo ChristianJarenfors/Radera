@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    bool isInlogged = Session["isInlogged"] == null ? false : (bool)Session["isInlogged"];
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>Radera</title>
@@ -12,17 +16,27 @@
 </head>
 <body ng-app="app">
     <div id="sidebar">
-        @*@if (User.isInlogged)
-            {
-                <img src="~/img/user1.jpg" alt="headshot" class="headshot" />
-                <span id="username">@User.FirstName</span>
-            }*@
+        @if (isInlogged == true)
+        {
+            <img src="~/image/alex.png" />
+            <span>Welcome @Session["firstName"]</span>
+        }
         <ul class="nav">
-            @*<li class="active"><a href="/Home/Index">Home</a></li>*@
-            <li><a href="/#/index">Home</a></li>
+            @if (isInlogged == false)
+            {
+                <li><a href="/#/index">Home</a></li>
+                <li><a href="/#/auctions">Auctions</a></li>
+            }
+
             <li><a href="/#/about">About</a></li>
             <li><a href="/#/contact">Contact</a></li>
-            <li><a href="/#/auctions">Auctions</a></li>
+
+            @if (isInlogged == true)
+            {
+                <li><a href="/#/mypage">My Page</a></li>
+                <li><a href="/#/auctionsinlogged">Auctions</a></li>
+                <li><a href="/#/logout">Logout</a></li>
+            }
         </ul>
     </div>
 
@@ -34,7 +48,7 @@
                     <li class="form-group" id="radera-navbar">
                         <button id="menuToggle" class="btn btn-primary form-control">
                             <i class="glyphicon glyphicon-chevron-left"></i>
-                        </button>                        
+                        </button>
                     </li>
                 </ul>
                 <a class="navbar-brand navbar-brandstyle" href="/Home/Index">Radera</a>
@@ -67,6 +81,6 @@
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-route.min.js"></script>
     <script src="~/angular/app.js"></script>
-    
+
 </body>
 </html>
