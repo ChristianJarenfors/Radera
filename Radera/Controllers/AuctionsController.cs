@@ -70,6 +70,19 @@ namespace Radera.Controllers
                 });
 
             return Content(serializedData, "application/json");
+         public ActionResult EditAuction()
+        {
+            return View();
+        }
+            [HttpPost]
+         public ActionResult EditAuction(Auction editedAuction)
+        {
+            RaderaContext RC = new RaderaContext();
+            Auction auctionToBeSaved = RC.Auctions.Single(a => a.AuctionID == editedAuction.AuctionID);
+            auctionToBeSaved = editedAuction;
+            RC.SaveChanges();
+            return View()
+        }
         }
     }
 }
