@@ -20,23 +20,29 @@ namespace Radera.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
-                .HasMany(a => a.UserAuctions)
-                .WithRequired(u => u.AuctionOwner);
+            //modelBuilder.Entity<User>()
+            //    .HasOptional(u => u.UserAuctions);
 
             modelBuilder.Entity<User>()
                 .HasMany(b => b.UserBids)
-                .WithRequired(u => u.BidOwner);
+                .WithRequired(u => u.BidOwner)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
                 .HasMany(c => c.UserComments)
-                .WithRequired(u => u.CommentOwner);
+                .WithRequired(u => u.CommentOwner)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Auction>()
-                .HasMany(b => b.Bids);
+                .HasMany(b => b.Bids)
+                .WithRequired(a => a.ThisAuction);
 
             modelBuilder.Entity<Auction>()
-                .HasMany(c => c.Comments);
+                .HasMany(c => c.Comments)
+                .WithRequired(a => a.CommentAuction);
+            modelBuilder.Entity<Auction>()
+                .HasRequired(a => a.AuctionOwner).WithMany(u=>u.UserAuctions)
+                .WillCascadeOnDelete(false);
 
         }
     }

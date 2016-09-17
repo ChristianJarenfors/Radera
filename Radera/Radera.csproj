@@ -215,9 +215,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609160747027_third.cs" />
-    <Compile Include="Migrations\201609160747027_third.Designer.cs">
-      <DependentUpon>201609160747027_third.cs</DependentUpon>
+    <Compile Include="Migrations\201609171424287_test.cs" />
+    <Compile Include="Migrations\201609171424287_test.Designer.cs">
+      <DependentUpon>201609171424287_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609171440335_test2.cs" />
+    <Compile Include="Migrations\201609171440335_test2.Designer.cs">
+      <DependentUpon>201609171440335_test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609171452480_test3.cs" />
+    <Compile Include="Migrations\201609171452480_test3.Designer.cs">
+      <DependentUpon>201609171452480_test3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
@@ -235,6 +243,8 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Auctions\EditAuction.cshtml" />
+    <Content Include="Views\Auctions\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -247,8 +257,14 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609160747027_third.resx">
-      <DependentUpon>201609160747027_third.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609171424287_test.resx">
+      <DependentUpon>201609171424287_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609171440335_test2.resx">
+      <DependentUpon>201609171440335_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609171452480_test3.resx">
+      <DependentUpon>201609171452480_test3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

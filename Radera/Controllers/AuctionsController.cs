@@ -70,19 +70,53 @@ namespace Radera.Controllers
                 });
 
             return Content(serializedData, "application/json");
-         public ActionResult EditAuction()
-        {
-            return View();
         }
-            [HttpPost]
-         public ActionResult EditAuction(Auction editedAuction)
+         public ActionResult EditAuction(int id = 0)
         {
             RaderaContext RC = new RaderaContext();
-            Auction auctionToBeSaved = RC.Auctions.Single(a => a.AuctionID == editedAuction.AuctionID);
-            auctionToBeSaved = editedAuction;
-            RC.SaveChanges();
-            return View()
+            Auction auction = RC.Auctions.Find(id);
+            if (auction == null)
+            {
+                return HttpNotFound();
+            }
+            return View(auction);
         }
+            [HttpPost]
+        public ActionResult EditAuction(Auction editedAuction)
+        {
+            RaderaContext RC = new RaderaContext();
+            if (ModelState.IsValid)
+            {
+                RC.Entry(editedAuction).State = System.Data.Entity.EntityState.Modified;
+                RC.SaveChanges();
+                return RedirectToAction("Index","Home");
+            }
+            return View(editedAuction);
+
+        }
+        public ActionResult Delete(int? id)
+        {
+            RaderaContext RC = new RaderaContext();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Auction auction = RC.Auctions.Find(id);
+            if (auction == null)
+            {
+                return HttpNotFound();
+            }
+            return View(auction);
+        }
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            RaderaContext RC = new RaderaContext();
+            Auction movie = RC.Auctions.Find(id);
+            RC.Auctions.Remove(movie);
+            RC.SaveChanges();
+            return RedirectToAction("Index","Home");
         }
     }
 }
