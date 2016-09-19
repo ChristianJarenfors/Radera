@@ -211,21 +211,14 @@
     <Compile Include="Controllers\AuctionsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionController.cs" />
+    <Compile Include="Controllers\BidController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609171424287_test.cs" />
-    <Compile Include="Migrations\201609171424287_test.Designer.cs">
-      <DependentUpon>201609171424287_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609171440335_test2.cs" />
-    <Compile Include="Migrations\201609171440335_test2.Designer.cs">
-      <DependentUpon>201609171440335_test2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609171452480_test3.cs" />
-    <Compile Include="Migrations\201609171452480_test3.Designer.cs">
-      <DependentUpon>201609171452480_test3.cs</DependentUpon>
+    <Compile Include="Migrations\201609190735328_1.cs" />
+    <Compile Include="Migrations\201609190735328_1.Designer.cs">
+      <DependentUpon>201609190735328_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
@@ -257,14 +250,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609171424287_test.resx">
-      <DependentUpon>201609171424287_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609171440335_test2.resx">
-      <DependentUpon>201609171440335_test2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609171452480_test3.resx">
-      <DependentUpon>201609171452480_test3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609190735328_1.resx">
+      <DependentUpon>201609190735328_1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

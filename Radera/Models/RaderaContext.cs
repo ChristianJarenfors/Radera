@@ -8,7 +8,7 @@ namespace Radera.Models
 {
     public class RaderaContext: DbContext
     {
-        public RaderaContext(): base("RaderaDB")
+        public RaderaContext(): base()
         {
 
         }
