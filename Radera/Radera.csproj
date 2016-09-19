@@ -212,6 +212,7 @@
     <Compile Include="Controllers\AuctionsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionController.cs" />
+    <Compile Include="Controllers\BidController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyPageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -220,6 +221,10 @@
     <Compile Include="Migrations\201609190842532_1.cs" />
     <Compile Include="Migrations\201609190842532_1.Designer.cs">
       <DependentUpon>201609190842532_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609190941422_3.cs" />
+    <Compile Include="Migrations\201609190941422_3.Designer.cs">
+      <DependentUpon>201609190941422_3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
@@ -251,6 +256,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201609190842532_1.resx">
       <DependentUpon>201609190842532_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609190941422_3.resx">
+      <DependentUpon>201609190941422_3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

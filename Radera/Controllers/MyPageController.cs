@@ -146,5 +146,39 @@ namespace Radera.Controllers
             return Content(serializedData, "application/json");
         }
 
+        [HttpPost]
+        public ActionResult placeBid(Bid newBid, int auctionID)
+        {
+            RaderaContext RC = new RaderaContext();
+            Auction auction = new Auction();
+
+            int userId = (int)Session["userId"];
+            User user;
+            user = RC.Users.Find(userId);
+
+            auction = RC.Auctions.Find(auctionID);
+
+            newBid = new Bid();
+            newBid.BidOwner = user;
+            newBid.ThisAuction = auction;
+            newBid.BidAmount = newBid.BidAmount; //Replace with actual bid
+            newBid.Date = DateTime.Now;
+
+            auction.Bids.Add(newBid);
+
+            RC.SaveChanges();
+
+
+            List<Auction> listOfAuctions = RC.Auctions.Where(a => a.AuctionOwner.UserID == user.UserID).ToList();
+
+            var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,
+                new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+
+            return Content(serializedData, "application/json");
+        }
+
     }
 }
