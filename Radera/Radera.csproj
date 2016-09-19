@@ -195,11 +195,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionController.cs" />
     <Compile Include="Controllers\AuctionAddController.cs" />
+    <Compile Include="Controllers\BidController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Bid.cs" />
