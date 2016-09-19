@@ -42,6 +42,7 @@ namespace Radera.Controllers
 
                 Session["isInlogged"] = true;
                 Session["firstName"] = user.FirstName;
+                Session["userId"] = user.UserID;
 
                 return Redirect("/#/auctionsinlogged");
             }
