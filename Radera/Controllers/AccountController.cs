@@ -14,6 +14,8 @@ namespace Radera.Controllers
         {
             return View();
         }
+
+        [HttpPost]
         public ActionResult Register()
         {
             string regUsername = Request["registerUsername"];
@@ -26,8 +28,7 @@ namespace Radera.Controllers
             var regPhonenumber = Convert.ToInt32(System.Web.HttpContext.Current.Request.Form["registerPhoneNumber"]);
             if (regUsername == null)
             {
-                return View();
-
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -48,42 +49,41 @@ namespace Radera.Controllers
                     context.SaveChanges();
 
                 }
-                return View();
+                return RedirectToAction("Index", "Home");
             }
 
             ///Connect to database to find user
 
         }
-        public ActionResult Login()
+
+        [HttpPost]
+        public ActionResult Login(string Username, string Password)
         {
-            string userName = Request["username"];
-            string userPassword = Request["password"];
+            RaderaContext RC = new RaderaContext();
+            User user = new User();
 
-            using (RaderaContext ct = new RaderaContext())
+            if (RC.Users.Any(u => u.Username == Username && u.Password == Password))
             {
-                var findUser = ct.Users.Where(x => x.Username.ToLower() == userName.ToLower());
+                user = RC.Users.Where(u => u.Username == Username && u.Password == Password).First();
 
-                if (findUser.Count() == 1 && findUser.First().Password == userPassword)
-                {
-                    // sets the session
-                    Session["currentUserId"] = findUser.First().UserID;
-                    Session["currentUsername"] = findUser.First().Username;
-                    Session["loginStatus"] = true;
+                Session["isInlogged"] = true;
+                Session["firstName"] = user.FirstName;
 
-                    return Redirect("/Home/Index");
-                }
+                return RedirectToAction("Index", "Home");
             }
 
-            return View();
+            return RedirectToAction("Index", "Home");            
+
         }
         public ActionResult Logout()
         {
             //resets the session value
             Session["currentUserId"] = "";
             Session["currentUsername"] = "";
-            Session["loginStatus"] = false;
+            Session["isInlogged"] = false;
 
-            return Redirect("/Account/Register");
+            return RedirectToAction("Index", "Home");
+
         }
     }
 }

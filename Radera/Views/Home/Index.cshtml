@@ -1,16 +1,18 @@
 ﻿@using Radera.Models;
+@{
+    bool isInlogged = Session["isInlogged"] == null ? false : (bool)Session["isInlogged"];
+}
+
 <div class="row">
-    <div>
-        <h2 class="col-lg-8 col-lg-offset-4 col-md-9 col-md-offset-3 col-sm-10 col-sm-offset-2">Welcome!</h2>
-    </div>
+    @if (isInlogged == false)
+    {
+        <div>
+            <h2 class="col-lg-8 col-lg-offset-4 col-md-9 col-md-offset-3 col-sm-10 col-sm-offset-2">Welcome!</h2>
+        </div>
+    }
+    
 
     <div ng-view></div>
 
 
 </div>
-@{ 
-    RaderaContext RC = new RaderaContext();
-    RC.Bids.Count();
-}
-
-
