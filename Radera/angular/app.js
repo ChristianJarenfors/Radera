@@ -28,10 +28,13 @@ app.config(function ($routeProvider) {
         })
 });
 
+
+//Actions
+//////////////////////////////////////////////////////////////
 app.controller("auctionsCtrl", function ($scope, $http) {
 
     $scope.auctionList = "";
-    $scope.auction = "";
+    $scope.auction = {};
 
 
     $http.get("/Auctions/GetAuctions")
@@ -42,13 +45,44 @@ app.controller("auctionsCtrl", function ($scope, $http) {
             console.log(result);
         })
 
-    $scope.auctionBid = function (auction) {
+    //$scope.auctionBid = function (auction) {
+        
+    //    $http.post("/Auctions/AuctionBid", { newBid: auction })
+    //        .success(function (result) {
+    //            $scope.auctionList = result;
+    //        })
+    //        .error(function (result) {
+    //            console.log(result);
+    //        })
+    //}
 
-        debugger;
-        $http.post("/Auctions/AuctionBid", { newBid: auction })
+});
+
+
+//MyActions
+//////////////////////////////////////////////////////////////
+
+app.controller("myAuctionsCtrl", function ($scope, $http) {
+
+    $scope.myAuctionList = "";
+    $scope.myAuction = "";
+
+   
+    $http.get("/MyPage/GetAuctionsByUserId")
+        .success(function (result) {
+            $scope.myAuctionList = result;
+        })
+        .error(function (result) {
+            console.log(result);
+        })
+
+
+    $scope.createAuction = function (myAuction) {
+
+        $http.post("/MyPage/CreateAuction", { newAuction: myAuction })
             .success(function (result) {
-                debugger;
-                $scope.auctionList = result;
+                $scope.myAuctionList = result;
+                $scope.myAuction = "";
             })
             .error(function (result) {
                 console.log(result);
@@ -67,5 +101,39 @@ app.controller("auctionsCtrl", function ($scope, $http) {
             })
     }
 
+
+    $scope.selectAuctionById = function (id) {
+        
+        $http.post("/MyPage/SelectAuctionById", { id: id })
+            .success(function (result) {
+                $scope.myAuction = result;
+            })
+            .error(function (result) {
+                console.log(result);
+            })
+    }
+
+    $scope.updateAuction = function (auction) {
+        
+        $http.post("/MyPage/UpdateAuction", { auction: auction })
+            .success(function (result) {
+                $scope.myAuctionList = result;
+                $scope.myAuction = "";
+            })
+            .error(function (result) {
+                console.log(result);
+            })
+    }
+
+    $scope.deleteAuction = function (id) {
+
+        $http.post("/MyPage/DeleteAuction", { id: id })
+            .success(function (result) {
+                $scope.myAuctionList = result;
+            })
+            .error(function (result) {
+                console.log(result);
+            })
+    }
 
 });

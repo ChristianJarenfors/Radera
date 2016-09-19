@@ -44,14 +44,15 @@ namespace Radera.Controllers
             //return Json(listOfAuctions, JsonRequestBehavior.AllowGet);
 
             var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,
-                new JsonSerializerSettings() {
+                new JsonSerializerSettings()
+                {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                 });
-            
+
             return Content(serializedData, "application/json");
 
         }
-
+                
         [HttpPost]
         public ActionResult AuctionBid(Bid newBid)
         {

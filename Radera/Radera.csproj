@@ -161,6 +161,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="image\frontpicture.png" />
     <Content Include="MyScripts\RegisterLogin.js" />
     <Content Include="image\alex.png" />
     <Content Include="MyScripts\site.js" />
@@ -211,14 +212,14 @@
     <Compile Include="Controllers\AuctionsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionController.cs" />
-    <Compile Include="Controllers\BidController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609190735328_1.cs" />
-    <Compile Include="Migrations\201609190735328_1.Designer.cs">
-      <DependentUpon>201609190735328_1.cs</DependentUpon>
+    <Compile Include="Migrations\201609160747027_third.cs" />
+    <Compile Include="Migrations\201609160747027_third.Designer.cs">
+      <DependentUpon>201609160747027_third.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
@@ -236,8 +237,6 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Auctions\EditAuction.cshtml" />
-    <Content Include="Views\Auctions\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -250,8 +249,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609190735328_1.resx">
-      <DependentUpon>201609190735328_1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609160747027_third.resx">
+      <DependentUpon>201609160747027_third.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

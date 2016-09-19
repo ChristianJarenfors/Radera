@@ -82,7 +82,7 @@ body {
 
 .navbar-brandstyle{
     margin: 15px 15px 15px 15px;
-    font-family:'Comic Sans MS'; 
+    font-family:Forte;
     font-size:75px;
 }
 
@@ -116,11 +116,25 @@ body {
 }
 
 img{
-    max-width: 200px;
+    max-width: 100px;
     max-height: 100px;
     border: solid 5px black;
 }
 
+#imgfront{
+    max-width: 10000px;
+    max-height: 500px;
+    margin-top: 100px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0; 
+}
 
 
 
