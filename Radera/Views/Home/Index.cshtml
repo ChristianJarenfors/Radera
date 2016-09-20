@@ -4,15 +4,16 @@
 }
 
 <div class="row">
+
     @if (isInlogged == false)
-    {
-        <div>
-            <h2 class="col-lg-8 col-lg-offset-4 col-md-9 col-md-offset-3 col-sm-10 col-sm-offset-2">Welcome!</h2>
+    {        
+        //Plocka bort bild när användare trycker val i menyn
+        <div class="form-group col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            @*<center><img src="~/image/frontpicture.png" id="imgfront" /></center>*@
+            <h2>Welcome!</h2>
         </div>
     }
     
-
     <div ng-view></div>
-
 
 </div>

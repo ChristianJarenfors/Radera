@@ -7,13 +7,13 @@ namespace Radera.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class test2 : IMigrationMetadata
+    public sealed partial class NumberoUNO : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(test2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NumberoUNO));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609171440335_test2"; }
+            get { return "201609201205295_Numbero UNO"; }
         }
         
         string IMigrationMetadata.Source

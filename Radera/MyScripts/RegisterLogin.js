@@ -14,5 +14,5 @@
         $(this).addClass('active');
         e.preventDefault();
     });
-
+    
 });
