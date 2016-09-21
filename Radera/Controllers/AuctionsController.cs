@@ -54,6 +54,10 @@ namespace Radera.Controllers
             return Content(serializedData, "application/json");
 
         }
+        public ActionResult AuctionInfo()
+        {
+            return View();
+        }
                 
         //[HttpPost]
         //public ActionResult AuctionBid(Bid newBid)

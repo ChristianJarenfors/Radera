@@ -21,9 +21,18 @@
     <div class="panel panel-primary panel-heading col-lg-3 col-md-4 col-sm-5 col-xs-10" ng-repeat="auction in auctionList | filter : searchImmediate" style="padding-bottom:75px;">
         <div class="panel-heading">
             <h3 class="panel-title">{{auction.Title}}</h3>
-        </div>
-
-        <div class="panel-body">
+        </div>       
+        <!--<div class="row">
+            <input type="button" id="mainview" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" value="Main"/>
+            <input type="button" id="comments"class="col-xs-4 col-sm-4 col-md-4 col-lg-4"value="Comments" />
+            <input type="button" id="comment" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" value="Comment" />     
+        </div>-->       
+        <ul class="tab">
+            <li><a href="#/auctions" class="tablinks" ng-click="openTab(event, auction.AuctionID,'main')">Main</a></li>
+            <li><a href="#/auctions" class="tablinks" ng-click="openTab(event, auction.AuctionID,'comments')">Comments</a></li>
+            <li><a href="#/auctions" class="tablinks" ng-click="openTab(event, auction.AuctionID, 'comment')">Comment</a></li>
+        </ul>
+        <div class="panel-body tabcontent" ng-attr-id="{{'main' + auction.AuctionID}}">            
             <div class="form-group">
                 <center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>
             </div>
@@ -39,6 +48,60 @@
                 <center><a href="/#/index" class="btn btn-success button">Bid Now</a></center>
             </div>
         </div>
+        <div class="panel-body tabcontent" ng-attr-id="{{'comments' + auction.AuctionID}}" >
+            <div class="panel" ng-repeat="comment in auction.Comments">
+                <div class="row">
+                    <div class="col-lg-2">{{comment.CommentOwner.Username}}</div>
+                    <div class="col-lg-2">{{comment.Date}}</div>
+                    <div class="col-lg-8">{{comment.CommentMessage}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body tabcontent" ng-attr-id="{{'comment' + auction.AuctionID}}" >
+            <form>
+                <div class="row">
+                    <textarea class="col-lg-12" autofocus="autofocus" rows="7"></textarea>
+    </div>
+
+                <div class="row">
+                    <button class="col-lg-6" type="reset">Reset</button>
+                    <button class="col-lg-6" type="submit">Post</button>
+                </div>
+                
+            </form>
+</div>
     </div>
 
 </div>
+<script>
+    //document.getElementById("mainview").addEventListener("click", viewshow("mainbody"));
+    //document.getElementById("comments").addEventListener("click", viewshow("commentsbody"));
+    //document.getElementById("comment").addEventListener("click", viewshow("commentbody"));
+    //function viewshow(VisibleBody) {
+    //    document.getElementById("mainbody").style.visibility = "collapse";
+    //    document.getElementById("commentsbody").style.visibility = "collapse";
+    //    document.getElementById("commentbody").style.visibility = "collapse";
+        
+    //    document.getElementById(VisibleBody).style.visibility = "visible";
+    //};
+    //function openTab(evt, view, wind) {
+    //    // Declare all variables
+    //    var i, tabcontent, tablinks;
+
+    //    // Get all elements with class="tabcontent" and hide them
+    //    tabcontent = document.getElementsByClassName("tabcontent");
+    //    for (i = 0; i < tabcontent.length; i++) {
+    //        tabcontent[i].style.display = "none";
+    //    }
+
+    //    // Get all elements with class="tablinks" and remove the class "active"
+    //    tablinks = document.getElementsByClassName("tablinks");
+    //    for (i = 0; i < tablinks.length; i++) {
+    //        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    //    }
+
+    //    // Show the current tab, and add an "active" class to the link that opened the tab
+    //    document.getElementById((wind + view)).style.display = "block";
+    //    evt.currentTarget.className += " active";
+    //}
+</script>
