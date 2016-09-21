@@ -239,18 +239,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609191144293_first.cs" />
-    <Compile Include="Migrations\201609191144293_first.Designer.cs">
-      <DependentUpon>201609191144293_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609201911317_Category.cs" />
-    <Compile Include="Migrations\201609201911317_Category.Designer.cs">
-      <DependentUpon>201609201911317_Category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609202211498_Category-Seeder.cs" />
-    <Compile Include="Migrations\201609202211498_Category-Seeder.Designer.cs">
-      <DependentUpon>201609202211498_Category-Seeder.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\Category.cs" />
@@ -278,17 +266,6 @@
   <ItemGroup>
     <Folder Include="angular\controllers\" />
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609191144293_first.resx">
-      <DependentUpon>201609191144293_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609201911317_Category.resx">
-      <DependentUpon>201609201911317_Category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609202211498_Category-Seeder.resx">
-      <DependentUpon>201609202211498_Category-Seeder.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

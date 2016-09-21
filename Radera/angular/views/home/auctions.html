@@ -22,11 +22,7 @@
         <div class="panel-heading">
             <h3 class="panel-title">{{auction.Title}}</h3>
         </div>       
-        <!--<div class="row">
-            <input type="button" id="mainview" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" value="Main"/>
-            <input type="button" id="comments"class="col-xs-4 col-sm-4 col-md-4 col-lg-4"value="Comments" />
-            <input type="button" id="comment" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" value="Comment" />     
-        </div>-->       
+            
         <ul class="tab">
             <li><a href="#/auctions" class="tablinks" ng-click="openTab(event, auction.AuctionID,'main')">Main</a></li>
             <li><a href="#/auctions" class="tablinks" ng-click="openTab(event, auction.AuctionID,'comments')">Comments</a></li>
@@ -73,35 +69,4 @@
     </div>
 
 </div>
-<script>
-    //document.getElementById("mainview").addEventListener("click", viewshow("mainbody"));
-    //document.getElementById("comments").addEventListener("click", viewshow("commentsbody"));
-    //document.getElementById("comment").addEventListener("click", viewshow("commentbody"));
-    //function viewshow(VisibleBody) {
-    //    document.getElementById("mainbody").style.visibility = "collapse";
-    //    document.getElementById("commentsbody").style.visibility = "collapse";
-    //    document.getElementById("commentbody").style.visibility = "collapse";
-        
-    //    document.getElementById(VisibleBody).style.visibility = "visible";
-    //};
-    //function openTab(evt, view, wind) {
-    //    // Declare all variables
-    //    var i, tabcontent, tablinks;
 
-    //    // Get all elements with class="tabcontent" and hide them
-    //    tabcontent = document.getElementsByClassName("tabcontent");
-    //    for (i = 0; i < tabcontent.length; i++) {
-    //        tabcontent[i].style.display = "none";
-    //    }
-
-    //    // Get all elements with class="tablinks" and remove the class "active"
-    //    tablinks = document.getElementsByClassName("tablinks");
-    //    for (i = 0; i < tablinks.length; i++) {
-    //        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    //    }
-
-    //    // Show the current tab, and add an "active" class to the link that opened the tab
-    //    document.getElementById((wind + view)).style.display = "block";
-    //    evt.currentTarget.className += " active";
-    //}
-</script>

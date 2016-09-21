@@ -71,25 +71,26 @@ body {
         transition: margin-left ease .75s;
     }
 
-#radera-navbar{
+#radera-navbar {
     margin: 25px 15px 15px 15px;
 }
 
-#radera-searchbar{
+#radera-searchbar {
     margin: 15px 25px 15px 15px;
 }
 
 
-.navbar-brandstyle{
+.navbar-brandstyle {
     margin: 15px 15px 15px 15px;
-    font-family:Forte;
-    font-size:75px;
+    font-family: Forte;
+    font-size: 75px;
 }
 
 .picture {
     width: 100%;
     max-height: 150px;
 }
+
 #time {
     font-size: 22px;
     line-height: 26px;
@@ -109,7 +110,7 @@ body {
     margin:0.5px;
 }*/
 .button {
-    color: #fff!important;
+    color: #fff !important;
     text-shadow: 0 1px 2px #693100;
     filter: dropshadow(color=#693100,offx=1,offy=2);
     text-align: center;
@@ -121,7 +122,13 @@ body {
     border: solid 5px black;
 }*/
 
-#imgfront{
+#userImg{
+    max-width: 100px;
+    max-height: 100px;
+    border: solid 5px black;
+}
+
+#imgfront {
     max-width: 10000px;
     max-height: 500px;
     margin-top: 100px;
@@ -133,7 +140,7 @@ hr {
     border: 0;
     border-top: 1px solid #ccc;
     margin: 1em 0;
-    padding: 0; 
+    padding: 0;
 }
 
 /* Style the list */
@@ -146,25 +153,31 @@ ul.tab {
     background-color: #f1f1f1;
 }
 
-/* Float the list items side by side */
-ul.tab li {float: left;}
+    /* Float the list items side by side */
+    ul.tab li {
+        float: left;
+    }
 
-/* Style the links inside the list items */
-ul.tab li a {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 17px;
-}
+        /* Style the links inside the list items */
+        ul.tab li a {
+            display: inline-block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 17px;
+        }
 
-/* Change background color of links on hover */
-ul.tab li a:hover {background-color: #ddd;}
+            /* Change background color of links on hover */
+            ul.tab li a:hover {
+                background-color: #ddd;
+            }
 
-/* Create an active/current tablink class */
-ul.tab li a:focus, .active {background-color: #ccc;}
+            /* Create an active/current tablink class */
+            ul.tab li a:focus, .active {
+                background-color: #ccc;
+            }
 
 /* Style the tab content */
 .tabcontent {
@@ -172,31 +185,40 @@ ul.tab li a:focus, .active {background-color: #ccc;}
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
-}
-.tabcontent {
     -webkit-animation: fadeEffect 1s;
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
 }
 
+
 @-webkit-keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 #itemimg {
     width: 750px;
     height: 500px;
 }
+
 .portfolio-item {
     margin-bottom: 25px;
 }
+
 #test {
-    margin-bottom: 50px
+    margin-bottom: 50px;
 }
-
-
