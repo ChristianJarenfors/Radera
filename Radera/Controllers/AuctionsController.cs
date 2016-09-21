@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Radera.Models;
 using System;
 using System.Collections.Generic;
@@ -19,42 +20,57 @@ namespace Radera.Controllers
             return View();
         }
 
+        
+        public ActionResult GetSearchCategories()
+        {
+            RaderaContext RC = new RaderaContext();
+            List<Category> listOfCategory = RC.Category.ToList();
+
+
+            var serializedData = JsonConvert.SerializeObject(listOfCategory, Formatting.None,
+                new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                    //ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
+
+            return Content(serializedData, "application/json");
+
+        }
+
         public ActionResult GetAuctions()
         {
             RaderaContext RC = new RaderaContext();
             List<Auction> listOfAuctions = RC.Auctions.ToList();
-
-
-            //return Json(listOfAuctions, JsonRequestBehavior.AllowGet);
+                       
 
             var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,
                 new JsonSerializerSettings()
                 {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                    //ContractResolver = new CamelCasePropertyNamesContractResolver()
                 });
 
             return Content(serializedData, "application/json");
 
         }
                 
-        [HttpPost]
-        public ActionResult AuctionBid(Bid newBid)
-        {
-            RaderaContext RC = new RaderaContext();
-            RC.Bids.Add(newBid);
-            RC.SaveChanges();
+        //[HttpPost]
+        //public ActionResult AuctionBid(Bid newBid)
+        //{
+        //    RaderaContext RC = new RaderaContext();
+        //    RC.Bids.Add(newBid);
+        //    RC.SaveChanges();
 
-            List<Auction> listOfAuctions = RC.Auctions.ToList();
+        //    List<Auction> listOfAuctions = RC.Auctions.ToList();
+            
+        //    var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,
+        //        new JsonSerializerSettings()
+        //        {
+        //            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+        //        });
 
-            //return Json(listOfAuctions, JsonRequestBehavior.AllowGet);
-
-            var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,
-                new JsonSerializerSettings()
-                {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                });
-
-            return Content(serializedData, "application/json");
-        }
+        //    return Content(serializedData, "application/json");
+        //}
     }
 }

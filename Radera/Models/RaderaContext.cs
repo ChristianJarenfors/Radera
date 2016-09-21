@@ -17,6 +17,8 @@ namespace Radera.Models
         public DbSet<Auction> Auctions { get; set; }
         public DbSet<Bid> Bids { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Category> Category { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -37,6 +39,10 @@ namespace Radera.Models
 
             modelBuilder.Entity<Auction>()
                 .HasMany(c => c.Comments);
+
+            modelBuilder.Entity<Category>()
+                .HasMany(a => a.Auction)
+                .WithRequired(u => u.Category);
 
         }
     }

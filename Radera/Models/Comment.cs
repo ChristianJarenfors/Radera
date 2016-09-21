@@ -8,7 +8,7 @@ namespace Radera.Models
     public class Comment
     {
         public int CommentID { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
         public string CommentMessage { get; set; }
 
         public virtual User CommentOwner { get; set; }

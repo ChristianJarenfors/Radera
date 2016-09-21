@@ -17,6 +17,22 @@ namespace Radera.Controllers
             return View();
         }
 
+        public ActionResult GetCategories()
+        {
+            RaderaContext RC = new RaderaContext();
+            List<Category> listOfCategory = RC.Category.ToList();
+
+
+            var serializedData = JsonConvert.SerializeObject(listOfCategory, Formatting.None,
+                new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                    //ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
+
+            return Content(serializedData, "application/json");
+
+        }
 
         [HttpGet]
         public ActionResult GetAuctionsByUserId()
@@ -46,19 +62,26 @@ namespace Radera.Controllers
             int userId = (int)Session["userId"];
             User user = new User();
             user = RC.Users.Find(userId);
-            
-            RC.Auctions.Add(new Auction
+
+            Category category;
+            category = RC.Category.Where(c => c.CategoryId == newAuction.Category.CategoryId).FirstOrDefault();
+
+            var auction = RC.Auctions.Add(new Auction
             {
                 //All data is for test. Replace with User input.
                 AuctionOwner = user,
                 Title = newAuction.Title,
                 StartPrice = newAuction.StartPrice,
-                PriceBuyout = newAuction.PriceBuyout
+                PriceBuyout = newAuction.PriceBuyout,
+                Description = newAuction.Description,
+                Category = category
             });
-            
+
+            RC.Auctions.Add(auction);
+                        
             RC.SaveChanges();
 
-
+            List<Category> categories = RC.Category.ToList();
             List<Auction> listOfAuctions = RC.Auctions.Where(a => a.AuctionOwner.UserID == user.UserID).ToList();
 
             var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,
@@ -103,6 +126,8 @@ namespace Radera.Controllers
             auctionFromRc.AuctionOwner.FirstName = auction.AuctionOwner.FirstName;
             auctionFromRc.StartPrice = auction.StartPrice;
             auctionFromRc.PriceBuyout = auction.PriceBuyout;
+            auctionFromRc.Category.CategoryId = auction.Category.CategoryId;
+            auctionFromRc.Description = auction.Description;
                         
             RC.SaveChanges();
 

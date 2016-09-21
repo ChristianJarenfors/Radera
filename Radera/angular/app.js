@@ -29,13 +29,23 @@ app.config(function ($routeProvider) {
 });
 
 
-//Actions
+//Auctions
 //////////////////////////////////////////////////////////////
 app.controller("auctionsCtrl", function ($scope, $http) {
 
-    $scope.auctionList = "";
+    $scope.auctionList = [];
     $scope.auction = {};
 
+    $scope.searchImmediate = searchImmediate;
+    $scope.searchCategories = [];
+
+    $scope.searchInput = {
+        selectedCategory: {
+            CategoryId: 0,
+            CategoryName: ''
+        },
+        auctionName: ''
+    };
 
     $http.get("/Auctions/GetAuctions")
         .success(function (result) {
@@ -45,8 +55,30 @@ app.controller("auctionsCtrl", function ($scope, $http) {
             console.log(result);
         })
 
+    //Get Categories
+    $http.get("/Auctions/GetSearchCategories")
+        .success(function (result) {
+            debugger;
+            $scope.searchCategories = result;
+        })
+        .error(function (result) {
+            console.log(result);
+        })
+
+
+    //Custom Search filter
+    function searchImmediate(item) {
+        if (($scope.searchInput.selectedCategory.CategoryId == 0 ? true : $scope.searchInput.selectedCategory.CategoryId == item.Category.CategoryId) &&
+            ($scope.searchInput.auctionName.length == 0 ? true : (item.Title.toLowerCase().indexOf($scope.searchInput.auctionName.toLowerCase()) >= 0))) {
+            return true;
+        }
+
+        return false;
+    }
+
+
     //$scope.auctionBid = function (auction) {
-        
+
     //    $http.post("/Auctions/AuctionBid", { newBid: auction })
     //        .success(function (result) {
     //            $scope.auctionList = result;
@@ -66,8 +98,10 @@ app.controller("myAuctionsCtrl", function ($scope, $http) {
 
     $scope.myAuctionList = "";
     $scope.myAuction = "";
-
+    $scope.isDetailsAreaVisible = false;
+    $scope.categories = [];
    
+
     $http.get("/MyPage/GetAuctionsByUserId")
         .success(function (result) {
             $scope.myAuctionList = result;
@@ -77,10 +111,30 @@ app.controller("myAuctionsCtrl", function ($scope, $http) {
         })
 
 
+    $http.get("/MyPage/GetCategories")
+       .success(function (result) {
+           debugger;
+           $scope.categories = result;
+       })
+       .error(function (result) {
+           console.log(result);
+       })
+
+
+    $scope.auctionDetails = function () {
+        if ($scope.isDetailsAreaVisible === false) {
+            $scope.isDetailsAreaVisible = true;
+        }
+        else {
+            $scope.isDetailsAreaVisible = false;
+        }
+    }
+
     $scope.createAuction = function (myAuction) {
 
         $http.post("/MyPage/CreateAuction", { newAuction: myAuction })
             .success(function (result) {
+                debugger;
                 $scope.myAuctionList = result;
                 $scope.myAuction = "";
             })
@@ -91,7 +145,7 @@ app.controller("myAuctionsCtrl", function ($scope, $http) {
 
 
     $scope.selectAuctionById = function (id) {
-        
+
         $http.post("/MyPage/SelectAuctionById", { id: id })
             .success(function (result) {
                 $scope.myAuction = result;
@@ -102,7 +156,7 @@ app.controller("myAuctionsCtrl", function ($scope, $http) {
     }
 
     $scope.updateAuction = function (auction) {
-        
+
         $http.post("/MyPage/UpdateAuction", { auction: auction })
             .success(function (result) {
                 $scope.myAuctionList = result;

@@ -19,5 +19,6 @@ namespace Radera.Models
         public virtual IList<Bid> Bids { get; set; }
 
         public virtual IList<Comment> Comments { get; set; }
+        public virtual Category Category { get; set; }
     }
 }
