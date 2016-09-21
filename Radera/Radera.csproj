@@ -217,9 +217,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609190917293_Number UNO.cs" />
-    <Compile Include="Migrations\201609190917293_Number UNO.Designer.cs">
-      <DependentUpon>201609190917293_Number UNO.cs</DependentUpon>
+    <Compile Include="Migrations\201609210835321_Nummer ett.cs" />
+    <Compile Include="Migrations\201609210835321_Nummer ett.Designer.cs">
+      <DependentUpon>201609210835321_Nummer ett.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
@@ -237,6 +237,7 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Auctions\AuctionInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -249,8 +250,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609190917293_Number UNO.resx">
-      <DependentUpon>201609190917293_Number UNO.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609210835321_Nummer ett.resx">
+      <DependentUpon>201609210835321_Nummer ett.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
