@@ -36,9 +36,10 @@
             <div class="form-group"><center>Description : {{auction.Description}}</center></div>
             <div class="form-group"><center>Category : {{auction.Category.CategoryName}}</center></div>
             <div class="form-group"><center><input class="form-control" type="text" name="bid.BidAmount" ng-model="bid.BidAmount" value="{{bid.BidAmount}}" /></center></div>
-            <div>
-                <center><input class="btn btn-success" type="submit" value="Bid" name="btnBid" ng-click="auctionBid(bid)" /></center>
-            </div>
+
+            <div class="form-group"><center><input class="btn btn-success" type="submit" value="Bid" name="btnBid" ng-click="auctionBid(bid)" /></center></div>
+            <div class="form-group"><center><a href="/#/auctiondetails" class="btn btn-success button">Details</a></center></div>
+
         </div>
     </div>
 

@@ -81,7 +81,6 @@ namespace Radera.Controllers
                         
             RC.SaveChanges();
 
-            List<Category> categories = RC.Category.ToList();
             List<Auction> listOfAuctions = RC.Auctions.Where(a => a.AuctionOwner.UserID == user.UserID).ToList();
 
             var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,

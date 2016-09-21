@@ -139,6 +139,7 @@
     <Content Include="angular\views\home\auctions.html" />
     <Content Include="angular\views\home\contact.html" />
     <Content Include="angular\views\home\index.html" />
+    <Content Include="angular\views\inlogged\auctiondetails.html" />
     <Content Include="angular\views\inlogged\mypage.html" />
     <Content Include="angular\views\inlogged\auctions.html" />
     <Content Include="Content\bootstrap-theme.css" />
