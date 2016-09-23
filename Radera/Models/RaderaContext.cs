@@ -41,8 +41,8 @@ namespace Radera.Models
                 .HasMany(c => c.Comments);
 
             modelBuilder.Entity<Category>()
-                .HasMany(a => a.Auction)
-                .WithRequired(u => u.Category);
+                .HasMany(a => a.Auction);
+                //.WithRequired(u => u.Category);
 
         }
     }

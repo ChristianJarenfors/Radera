@@ -54,23 +54,41 @@ namespace Radera.Controllers
             return Content(serializedData, "application/json");
 
         }
-                       
-        //[HttpPost]
-        //public ActionResult AuctionBid(Bid newBid)
-        //{
-        //    RaderaContext RC = new RaderaContext();
-        //    RC.Bids.Add(newBid);
-        //    RC.SaveChanges();
 
-        //    List<Auction> listOfAuctions = RC.Auctions.ToList();
-            
-        //    var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,
-        //        new JsonSerializerSettings()
-        //        {
-        //            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-        //        });
+        [HttpPost]
+        public ActionResult placeBid(Bid nyBid, Auction thisAuction)
+        {
+            RaderaContext RC = new RaderaContext();
+            User user;
 
-        //    return Content(serializedData, "application/json");
-        //}
+            int userId = (int)Session["userId"];
+            user = RC.Users.Find(userId);
+
+            var selectAuction = (from x in RC.Auctions
+                                 where x.AuctionID == thisAuction.AuctionID
+                                 select x).Single();
+
+
+            RC.Bids.Add(new Bid
+            {
+                BidAmount = nyBid.BidAmount,
+                BidOwner = user,
+                Date = DateTime.Now,
+                ThisAuction = selectAuction
+            });
+
+            RC.SaveChanges();
+
+
+            List<Auction> listOfAuctions = RC.Auctions.ToList();
+
+            var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,
+                new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+
+            return Content(serializedData, "application/json");
+        }
     }
 }

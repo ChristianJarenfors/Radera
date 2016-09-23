@@ -49,6 +49,8 @@ app.controller("auctionsCtrl", function ($scope, $http) {
         auctionName: ''
     };
 
+
+
     $http.get("/Auctions/GetAuctions")
         .success(function (result) {
             $scope.auctionList = result;
@@ -56,6 +58,16 @@ app.controller("auctionsCtrl", function ($scope, $http) {
         .error(function (result) {
             console.log(result);
         })
+
+    $scope.placeBid = function (bid, auction) {
+        $http.post("/Auctions/placeBid", { nyBid: bid, thisAuction: auction })
+            .success(function (result) {
+                $scope.auctionList = result;
+            })
+            .error(function (result) {
+                console.log(result);
+            })
+    }
 
 
     $scope.openTab = function (evt, AuctionID, wind) {
