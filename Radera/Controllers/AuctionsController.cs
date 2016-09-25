@@ -90,5 +90,39 @@ namespace Radera.Controllers
 
             return Content(serializedData, "application/json");
         }
+        public ActionResult postComment(string theMessage, Auction thisAuction)
+        {
+            RaderaContext RC = new RaderaContext();
+            User user;
+
+            int userId = (int)Session["userId"];
+            user = RC.Users.Find(userId);
+
+            var selectAuction = (from x in RC.Auctions
+                                 where x.AuctionID == thisAuction.AuctionID
+                                 select x).Single();
+
+
+            RC.Comments.Add(new Comment
+            {
+                CommentAuction = selectAuction,
+                Date =DateTime.Now,
+                 CommentMessage=theMessage,
+                 CommentOwner = user 
+            });
+
+            RC.SaveChanges();
+
+
+            List<Auction> listOfAuctions = RC.Auctions.ToList();
+
+            var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,
+                new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+
+            return Content(serializedData, "application/json");
+        }
     }
 }

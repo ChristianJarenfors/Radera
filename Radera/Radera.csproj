@@ -240,10 +240,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609241708180_hej.cs" />
-    <Compile Include="Migrations\201609241708180_hej.Designer.cs">
-      <DependentUpon>201609241708180_hej.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\Category.cs" />
@@ -271,11 +267,6 @@
   <ItemGroup>
     <Folder Include="angular\controllers\" />
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609241708180_hej.resx">
-      <DependentUpon>201609241708180_hej.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

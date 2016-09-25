@@ -27,7 +27,12 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">{{auction.Title}}</h3>
                 </div>
-                <div class="panel-body">
+                <ul class="tab">
+                    <li><a href="#/auctionsinlogged" class="tablinks" ng-click="openTab(event, auction.AuctionID,'main')">Main</a></li>
+                    <li><a href="#/auctionsinlogged" class="tablinks" ng-click="openTab(event, auction.AuctionID,'comments')">Comments</a></li>
+                    <li><a href="#/auctionsinlogged" class="tablinks" ng-click="openTab(event, auction.AuctionID, 'comment')">Comment</a></li>
+                </ul>
+                <div class="panel-body tabcontent" ng-attr-id="{{'main' + auction.AuctionID}}">
                     <div class="form-group">
                         <center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>
                     </div>
@@ -44,6 +49,28 @@
                     <div class="form-group buttonlay"><input class="btn btn-success" type="submit" value="Bid" name="btnBid" ng-click="placeBid(bid, auction)" /></div>
                     <div class="form-group buttonlay"><a href="/#/auctiondetails" class="btn btn-success button">Details</a></div>
 
+                </div>
+                <div class="panel-body tabcontent" ng-attr-id="{{'comments' + auction.AuctionID}}">
+                    <div class="panel" ng-repeat="comment in auction.Comments">
+                        <div class="row">
+                            <div class="col-lg-2">{{comment.CommentOwner.Username}}</div>
+                            <div class="col-lg-2">{{comment.Date}}</div>
+                            <div class="col-lg-8">{{comment.CommentMessage}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body tabcontent" ng-attr-id="{{'comment' + auction.AuctionID}}">
+                    <form>
+                        <div class="row">
+                            <textarea class="col-lg-12" ng-model="message" autofocus="autofocus" rows="7"></textarea>
+                        </div>
+
+                        <div class="row">
+                            <button class="col-lg-6" type="reset">Reset</button>
+                            <button class="col-lg-6" type="submit" ng-click="postcomment(message, auction)">Post</button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>

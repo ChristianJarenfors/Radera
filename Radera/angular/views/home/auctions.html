@@ -24,9 +24,9 @@
         </div>       
             
         <ul class="tab">
-            <li><a href="#/auctions" class="tablinks" ng-click="openTab(event, auction.AuctionID,'main')">Main</a></li>
-            <li><a href="#/auctions" class="tablinks" ng-click="openTab(event, auction.AuctionID,'comments')">Comments</a></li>
-            <li><a href="#/auctions" class="tablinks" ng-click="openTab(event, auction.AuctionID, 'comment')">Comment</a></li>
+            <li><a href="#/auctions" class="tablinks" ng-click="openTabUnlogged(event, auction.AuctionID,'main')">Main</a></li>
+            <li><a href="#/auctions" class="tablinks" ng-click="openTabUnlogged(event, auction.AuctionID,'comments')">Comments</a></li>
+            <!--<li><a href="#/auctions" class="tablinks" ng-click="openTab(event, auction.AuctionID, 'comment')">Comment</a></li>-->
         </ul>
         <div class="panel-body tabcontent" ng-attr-id="{{'main' + auction.AuctionID}}">            
             <div class="form-group">
@@ -53,11 +53,11 @@
                 </div>
             </div>
         </div>
-        <div class="panel-body tabcontent" ng-attr-id="{{'comment' + auction.AuctionID}}" >
+        <!--<div class="panel-body tabcontent" ng-attr-id="{{'comment' + auction.AuctionID}}" >
             <form>
                 <div class="row">
                     <textarea class="col-lg-12" autofocus="autofocus" rows="7"></textarea>
-    </div>
+                 </div>
 
                 <div class="row">
                     <button class="col-lg-6" type="reset">Reset</button>
@@ -65,7 +65,7 @@
                 </div>
                 
             </form>
-</div>
+        </div>-->
     </div>
 
 </div>
