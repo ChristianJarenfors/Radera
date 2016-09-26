@@ -240,6 +240,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609260918254_hej.cs" />
+    <Compile Include="Migrations\201609260918254_hej.Designer.cs">
+      <DependentUpon>201609260918254_hej.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\Category.cs" />
@@ -257,6 +261,7 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Auctions\UpploadPicture.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -267,6 +272,11 @@
   <ItemGroup>
     <Folder Include="angular\controllers\" />
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609260918254_hej.resx">
+      <DependentUpon>201609260918254_hej.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

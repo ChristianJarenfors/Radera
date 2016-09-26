@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "UpploadPicture";
+}
+<h2>Basic File Upload</h2>
+<form action="/Auctions/UpploadPicture" method="post" enctype="multipart/form-data" accept-charset="image/*">
+    <img src="" width="250" style="display:none;" id="browseimg" />
+    <p id="filename" style="font-size:20px;"></p>
+    <label class="custom-file-upload" for="file">Click here to Upload Photo:<input type="file" name="file" id="file" class="custom-file-upload" /></label>
+    <br />
+    <input type="reset" class="btn-outline btn-primary-outline" value="Reset">
+    <input type="submit" class="btn-outline btn-primary-outline" value="Confirm Upload" />
+    <input type="text" name="title" placeholder="title" />
+    <input type="number" name="startPrice" placeholder="startprice" />
+    <input type="number" name="Buyout" placeholder="buyout"/>
+    <input type="text" name="Description" placeholder="description"/>
+
+</form>

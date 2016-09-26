@@ -74,7 +74,7 @@ namespace Radera.Controllers
                 StartPrice = newAuction.StartPrice,
                 PriceBuyout = newAuction.PriceBuyout,
                 Description = newAuction.Description,
-                Category = category
+                Category = category,
             });
 
             RC.Auctions.Add(auction);
