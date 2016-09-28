@@ -1,5 +1,6 @@
 ﻿@{
     bool isInlogged = Session["isInlogged"] == null ? false : (bool)Session["isInlogged"];
+    bool isAdmin = Session["isAdmin"] == null ? false : (bool)Session["isAdmin"];
 }
 
 <!DOCTYPE html>
@@ -22,20 +23,27 @@
             <img id="userImg" src="~/image/alex.png" />
             <span>Welcome @Session["firstName"]</span>
         }
-        <ul class="nav">
-            @if (isInlogged == false)
+        <ul class="nav">            
+            @if (isInlogged == false && isAdmin == false)
             {
                 <li><a href="/#/index" id="home">Home</a></li>
                 <li><a href="/#/auctions">Auctions</a></li>
-            }
-
-            <li><a href="/#/about">About</a></li>
-            <li><a href="/#/contact">Contact</a></li>
+                <li><a href="/#/about">About</a></li>
+                <li><a href="/#/contact">Contact</a></li>
+            }            
 
             @if (isInlogged == true)
             {
                 <li><a href="/#/mypage">My Page</a></li>
                 <li><a href="/#/auctionsinlogged">Auctions</a></li>
+                <li><a href="/#/about">About</a></li>
+                <li><a href="/#/contact">Contact</a></li>
+                <li><a class="animate" href="~/Account/Logout">Logout</a></li>
+            }
+            @if (isAdmin == true)
+            {
+                <li><a href="/#/admin">Admin Page</a></li>
+                <li><a href="/#/handleusers">Handle Users</a></li>
                 <li><a class="animate" href="~/Account/Logout">Logout</a></li>
             }
         </ul>

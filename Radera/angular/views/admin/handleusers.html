@@ -1,0 +1,78 @@
+﻿<div ng-app="app" ng-controller="adminUsersCtrl" class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2">
+
+    <h1>This is admin-user page</h1>
+    <div class="form-group">
+        <label for="searchUserName">Search for Users</label>
+        <input type="text" class="form-control"
+               ng-model="searchInput.UserName" />
+    </div>
+
+    <div>
+        <div class="form-group">
+            <input class="form-control" type="hidden" name="adminUser.UserID" ng-model="adminUser.UserID" value="{{adminUser.UserID}}" />
+        </div>
+        <div class="form-group">
+            Username:<input class="form-control" type="text" name="adminUser.Username" ng-model="adminUser.Username" value="{{adminUser.Username}}" />
+        </div>
+        <div class="form-group">
+            Password:<input class="form-control" type="text" name="adminUser.Password" ng-model="adminUser.Password" value="{{adminUser.Password}}" />
+        </div>
+        <div class="form-group">
+            FirstName:<input class="form-control" type="text" name="adminUser.FirstName" ng-model="adminUser.FirstName" value="{{adminUser.FirstName}}" />
+        </div>
+        <div class="form-group">
+            LastName:<input class="form-control" type="text" name="adminUser.LastName" ng-model="adminUser.LastName" value="{{adminUser.LastName}}" />
+        </div>
+        <div class="form-group">
+            Gender:<input class="form-control" type="text" name="adminUser.Gender" ng-model="adminUser.Gender" value="{{adminUser.Gender}}" />
+        </div>
+        <div class="form-group">
+            City:<input class="form-control" type="text" name="adminUser.City" ng-model="adminUser.City" value="{{adminUser.City}}" />
+        </div>
+
+        <div class="form-group">
+            <input class="btn btn-success" type="submit" value="Create User" name="btnCreate" ng-click="createUser(adminUser)" />
+        </div>
+        <div class="form-group">
+            <input class="btn btn-success" type="submit" value="Update" name="btnUpdate" ng-click="updateUser(adminUser)" />
+        </div>
+
+    </div>
+
+    <br />
+    <br />
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                    <th>Select</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in userList | filter: {Username:searchInput.UserName}">
+                    <td>{{user.UserID}}</td>
+                    <td>{{user.Username}}</td>
+                    <td>{{user.Password}}</td>
+                    <td>{{user.FirstName}}</td>
+                    <td>{{user.LastName}}</td>
+                    <td>{{user.Gender}}</td>
+                    <td>{{user.City}}</td>
+                    <td><input class="btn btn-success" type="submit" value="Select" name="btnSelect" ng-click="selectUserById(user.UserID)" /></td>
+                    <td><input class="btn btn-success" type="submit" value="Delete" name="btnDelete" ng-click="deleteUser(user.UserID)" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+
