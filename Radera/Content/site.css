@@ -222,3 +222,10 @@ ul.tab {
 #test {
     margin-bottom: 50px;
 }
+.buttonlay {
+    display: inline;
+}
+.panel-primary-auction {
+    /*height: 530px;*/
+    
+}

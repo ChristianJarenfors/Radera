@@ -56,6 +56,8 @@ app.controller("auctionsCtrl", function ($scope, $http) {
         auctionName: ''
     };
 
+
+
     $http.get("/Auctions/GetAuctions")
         .success(function (result) {
             $scope.auctionList = result;
@@ -64,8 +66,55 @@ app.controller("auctionsCtrl", function ($scope, $http) {
             console.log(result);
         })
 
+    $scope.placeBid = function (bid, auction) {
+        $http.post("/Auctions/placeBid", { nyBid: bid, thisAuction: auction })
+            .success(function (result) {
+                $scope.auctionList = result;
+            })
+            .error(function (result) {
+                console.log(result);
+            })
+    }
 
-    $scope.openTab = function (evt, AuctionID, wind) {
+    $scope.postcomment = function (message, auction) {
+        $http.post("/Auctions/postComment", { theMessage: message, thisAuction: auction })
+            .success(function (result) {
+                $scope.auctionList = result;
+            })
+            .error(function (result) {
+                console.log(result);
+            })
+    }
+    $scope.openTabUnlogged = function (evt, AuctionID, wind) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        //tabcontent = document.getElementsByClassName("tabcontent");
+        //for (i = 0; i < tabcontent.length; i++) {
+        //    tabcontent[i].style.display = "none";
+        //}
+        var windowid = 'main' + AuctionID;
+        document.getElementById(windowid).style.display = "none";
+        document.getElementById(windowid).className = document.getElementById(windowid).className.replace(" active", "");
+        var windowid = 'comments' + AuctionID;
+        document.getElementById(windowid).style.display = "none";
+        document.getElementById(windowid).className = document.getElementById(windowid).className.replace(" active", "");
+        //var windowid = 'comment' + AuctionID;
+        //document.getElementById(windowid).style.display = "none";
+        //document.getElementById(windowid).className = document.getElementById(windowid).className.replace(" active", "");
+        // Get all elements with class="tablinks" and remove the class "active"
+        //tablinks = document.getElementsByClassName("tablinks");
+        //for (i = 0; i < tablinks.length; i++) {
+        //    tablinks[i].className = tablinks[i].className.replace(" active", "");
+        //}
+        windowid = wind + AuctionID;
+        //alert(windowid);
+        // Show the current tab, and add an "active" class to the link that opened the tab
+        document.getElementById(windowid).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    $scope.openTab= function (evt, AuctionID, wind) {
         // Declare all variables
         var i, tabcontent, tablinks;
 
@@ -94,7 +143,6 @@ app.controller("auctionsCtrl", function ($scope, $http) {
         document.getElementById(windowid).style.display = "block";
         evt.currentTarget.className += " active";
     }
-
 
     //Get Categories
     $http.get("/Auctions/GetSearchCategories")

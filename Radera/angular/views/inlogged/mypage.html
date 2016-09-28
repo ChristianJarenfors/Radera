@@ -1,96 +1,97 @@
-﻿<div ng-app="app" ng-controller="myAuctionsCtrl">
-    
-    <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2">
-        <h1>My Auctions</h1>
-        <div class="form-group">
-        </div>
-        <div class="panel panel-primary panel-heading col-lg-4 col-md-4 col-sm-5 col-xs-10">
-            <div class="panel-heading">
-                <input class="form-control" type="text" name="myAuction.Title" ng-model="myAuction.Title" value="{{myAuction.Title}}" />
-            </div>
+﻿<div class="container">
+    <div ng-app="app" ng-controller="myAuctionsCtrl">
+        <div class="row">
+            <div class="col-lg-10">
+                <!--class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2">-->
+                <h1>New Auction</h1>
+                <div class="panel panel-primary col-lg-4 col-md-4 col-sm-5 col-xs-8">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <p>Title:</p><input class="form-control" type="text" name="myAuction.Title" ng-model="myAuction.Title" value="{{myAuction.Title}}" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="hidden" name="myAuction.AuctionID" ng-model="myAuction.AuctionID" value="{{myAuction.AuctionID}}" />
+                        </div>
+                        <div class="form-group">
+                            <center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>
+                        </div>
+                        <div class="form-group">
+                            <p>StartPrice:</p><input class="form-control" type="text" name="myAuction.StartPrice" ng-model="myAuction.StartPrice" value="{{myAuction.StartPrice}}" />
+                        </div>
+                        <div class="form-group">
+                            <p>PriceBuyout:</p><input class="form-control" type="text" name="myAuction.PriceBuyout" ng-model="myAuction.PriceBuyout" value="{{myAuction.PriceBuyout}}" />
+                        </div>
+                        <label for="categoryId"></label>
+                        <div class="form-group">
+                            <label for="categoryId">Selected Category</label>
+                            <select id="categoryId"
+                                    class="form-control"
+                                    name="myAuction.Category"
+                                    ng-model="myAuction.Category"
+                                    ng-options="item.CategoryName for item in categories track by item.CategoryId"></select>
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-success" type="submit" value="Create" name="btnCreate" ng-click="createAuction(myAuction)" />
+                            <input class="btn btn-success" type="submit" value="Update" name="btnUpdate" ng-click="updateAuction(myAuction)" />
+                            <input class="btn btn-success" type="submit" value="Details" name="btnDetails" ng-click="auctionDetails()" />
+                        </div>
+                    </div>
+                </div>
 
-            <div class="panel-body">
-                <div class="form-group">
-                    <input class="form-control" type="hidden" name="myAuction.AuctionID" ng-model="myAuction.AuctionID" value="{{myAuction.AuctionID}}" />
+                <div ng-show="isDetailsAreaVisible" class="col-lg-4 col-md-4 col-sm-5 col-xs-10">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{auction.Title}}</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <input class="form-control" type="hidden" name="myAuction.AuctionID" ng-model="myAuction.AuctionID" value="{{myAuction.AuctionID}}" />
+                        </div>
+                        <div class="form-group">
+                            Description:<textarea maxlength="200" cols="50" rows="4" class="form-control" name="myAuction.Description" ng-model="myAuction.Description" value="{{myAuction.Description}}" />
+                        </div>
+                        <br />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>
-                </div>
-                <div class="form-group">
-                    StartPrice:<input class="form-control" type="text" name="myAuction.StartPrice" ng-model="myAuction.StartPrice" value="{{myAuction.StartPrice}}" />
-                </div>
-                <div class="form-group">
-                    PriceBuyout:<input class="form-control" type="text" name="myAuction.PriceBuyout" ng-model="myAuction.PriceBuyout" value="{{myAuction.PriceBuyout}}" />
-                </div>
-                <label for="categoryId"></label>
-                <div class="form-group">
-                    <label for="categoryId">Selected Category</label>
-                    <select id="categoryId"
-                            class="form-control"
-                            name="myAuction.Category"
-                            ng-model="myAuction.Category"
-                            ng-options="item.CategoryName for item in categories track by item.CategoryId"></select>
-                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2" style="padding-bottom:75px;">-->
+                <!--<hr />-->
                 <br />
+            <h1>New Auction</h1>
+                <div class="panel panel-primary panel-heading col-lg-3 col-md-4 col-sm-6 col-xs-8" ng-repeat="auction in myAuctionList">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{auction.Title}}</h3>
+                    </div>
 
-                <div class="form-group">
-                    <input class="btn btn-success" type="submit" value="Create Auction" name="btnCreate" ng-click="createAuction(myAuction)" />
-                    <input class="btn btn-success" type="submit" value="Update" name="btnUpdate" ng-click="updateAuction(myAuction)" />
-                    <input class="btn btn-success" type="submit" value="Details" name="btnDetails" ng-click="auctionDetails()" />
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <input class="form-control" type="hidden" name="auction.AuctionID" ng-model="auction.AuctionID" value="{{auction.AuctionID}}" />
+                        </div>
+                        <div class="form-group">
+                            <center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>
+                        </div>
+                        <div class="form-group">
+                            <center><h2 id="time">03:45:05</h2></center>
+                        </div>
+                        <div class="form-group"><center>Seller : {{auction.AuctionOwner.FirstName}}</center></div>
+                        <div class="form-group"><center>StartPrice : {{auction.StartPrice}}</center></div>
+                        <div class="form-group"><center>PriceBuyout : {{auction.PriceBuyout}}</center></div>
+                        <!--<div class="form-group"><center>Description : {{auction.Description}}</center></div>-->
+                        <div class="form-group"><center>Category : {{auction.Category.CategoryName}}</center></div>
+                        <div>
+                            <center>
+                                <input class="btn btn-success" type="submit" value="Select" name="btnSelect" ng-click="selectAuctionById(auction.AuctionID)" />
+                                <input class="btn btn-success" type="submit" value="Delete" name="btnDelete" ng-click="deleteAuction(auction.AuctionID)" />
+                            </center>
+                            <!--<center><a href="/#/mypage" ng-click="selectAuctionById(auction.AuctionID)">Select</a></center>-->
+
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+            <!--</div>-->
         </div>
-
-        <div ng-show="isDetailsAreaVisible" class="col-lg-4 col-md-4 col-sm-5 col-xs-10">
-            <div class="panel-heading">
-                <h3 class="panel-title">{{auction.Title}}</h3>
-            </div>
-
-            <div class="panel-body">
-                <div class="form-group">
-                    <input class="form-control" type="hidden" name="myAuction.AuctionID" ng-model="myAuction.AuctionID" value="{{myAuction.AuctionID}}" />
-                </div>
-                <div class="form-group">
-                    Description:<textarea maxlength="200" cols="50" rows="4" class="form-control" name="myAuction.Description" ng-model="myAuction.Description" value="{{myAuction.Description}}" />
-                </div>
-                <br />
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2" style="padding-bottom:75px;">
-        <hr />
-        <br />        
-        <div class="panel panel-primary panel-heading col-lg-3 col-md-4 col-sm-5 col-xs-10" ng-repeat="auction in myAuctionList">
-            <div class="panel-heading">
-                <h3 class="panel-title">{{auction.Title}}</h3>
-            </div>
-
-            <div class="panel-body">
-                <div class="form-group">
-                    <input class="form-control" type="hidden" name="auction.AuctionID" ng-model="auction.AuctionID" value="{{auction.AuctionID}}" />
-                </div>
-                <div class="form-group">
-                    <center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>
-                </div>
-                <div class="form-group">
-                    <center><h2 id="time">03:45:05</h2></center>
-                </div>
-                <div class="form-group"><center>Seller : {{auction.AuctionOwner.FirstName}}</center></div>
-                <div class="form-group"><center>StartPrice : {{auction.StartPrice}}</center></div>
-                <div class="form-group"><center>PriceBuyout : {{auction.PriceBuyout}}</center></div>
-                <div class="form-group"><center>Description : {{auction.Description}}</center></div>
-                <div class="form-group"><center>Category : {{auction.Category.CategoryName}}</center></div>
-                <div>
-                    <center>
-                        <input class="btn btn-success" type="submit" value="Select" name="btnSelect" ng-click="selectAuctionById(auction.AuctionID)" />
-                        <input class="btn btn-success" type="submit" value="Delete" name="btnDelete" ng-click="deleteAuction(auction.AuctionID)" />
-                    </center>
-                    <!--<center><a href="/#/mypage" ng-click="selectAuctionById(auction.AuctionID)">Select</a></center>-->
-                    
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
