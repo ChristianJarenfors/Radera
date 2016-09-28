@@ -57,6 +57,7 @@ namespace Radera.Controllers
         [HttpPost]
         public ActionResult CreateAuction(Auction newAuction)
         {
+            
             RaderaContext RC = new RaderaContext();
 
             int userId = (int)Session["userId"];

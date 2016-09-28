@@ -6,15 +6,28 @@
                 <h1>New Auction</h1>
                 <div class="panel panel-primary col-lg-4 col-md-4 col-sm-5 col-xs-8">
                     <div class="panel-body">
+                        <a href="/Auctions/UpploadPicture">Create Auction</a>
+                        <p>{{myAuction.Title}}</p>
+                        <p>{{myAuction.Picture}}</p>
+                        
                         <div class="form-group">
                             <p>Title:</p><input class="form-control" type="text" name="myAuction.Title" ng-model="myAuction.Title" value="{{myAuction.Title}}" />
                         </div>
                         <div class="form-group">
                             <input class="form-control" type="hidden" name="myAuction.AuctionID" ng-model="myAuction.AuctionID" value="{{myAuction.AuctionID}}" />
                         </div>
+                        penis
                         <div class="form-group">
-                            <center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>
+                            <!--<center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>-->
+                            <label class="custom-file-upload" for="file">Click here to Upload Photo:
+                            <!--<input ng-model="myAuction.Picture" type="file" file-input="files" name="myAuction.Picture" id="file" class="custom-file-upload" />-->
+                            </label>
                         </div>
+                        <!--<div class="form-group">
+                            <input ng-model="myAuction.Picture" class="form-control" type="file" fd-input />
+                        </div>-->
+                        <input name="myFile" upload-file="myFile" type="file" />
+                        <input type="button" ng-click="doUpload()" text="Upload" />
                         <div class="form-group">
                             <p>StartPrice:</p><input class="form-control" type="text" name="myAuction.StartPrice" ng-model="myAuction.StartPrice" value="{{myAuction.StartPrice}}" />
                         </div>

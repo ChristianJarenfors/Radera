@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Radera.Models;
+using Radera.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,7 +22,7 @@ namespace Radera.Controllers
             return View();
         }
 
-        
+
         public ActionResult GetSearchCategories()
         {
             RaderaContext RC = new RaderaContext();
@@ -43,7 +44,7 @@ namespace Radera.Controllers
         {
             RaderaContext RC = new RaderaContext();
             List<Auction> listOfAuctions = RC.Auctions.ToList();
-                       
+
 
             var serializedData = JsonConvert.SerializeObject(listOfAuctions, Formatting.None,
                 new JsonSerializerSettings()
@@ -107,9 +108,9 @@ namespace Radera.Controllers
             RC.Comments.Add(new Comment
             {
                 CommentAuction = selectAuction,
-                Date =DateTime.Now,
-                 CommentMessage=theMessage,
-                 CommentOwner = user 
+                Date = DateTime.Now,
+                CommentMessage = theMessage,
+                CommentOwner = user
             });
 
             RC.SaveChanges();
@@ -125,78 +126,65 @@ namespace Radera.Controllers
 
             return Content(serializedData, "application/json");
         }
-        public ActionResult UpploadPicture(HttpPostedFileBase file)
-        {
-            if (file != null && file.ContentLength > 0)
-                try
-                {
-                    Auction newPicture = new Auction();
-                    RaderaContext context = new RaderaContext();
-                    FileSave(file);
 
-                    
-                }
-                catch (Exception ex)
-                {
-                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
-                }
-            return View();
-        }
-        public void FileSave(HttpPostedFileBase file)
+        [HttpGet]
+        public ActionResult UpploadPicture()
         {
-            Auction newAuction = new Auction();
             RaderaContext RC = new RaderaContext();
-            int userId = (int)Session["userId"];
-            User user = new User();
-            user = RC.Users.Find(userId);
-            try
+
+            var createAuctionViewModel = new CreateAuctionViewModel { Categories = new SelectList(RC.Category.ToList(), "CategoryId", "CategoryName") };
+            return View(createAuctionViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult UpploadPicture(CreateAuctionViewModel model)
+        {
+            RaderaContext rc = new RaderaContext();
+
+            if (ModelState.IsValid)
             {
-                if (file == null)
+                var picture = FileSave(model.File);
+                var category = rc.Category.Find(model.CategoryId);
+                int userId = (int)Session["userId"];
+                var user = rc.Users.Find(userId);
+
+                rc.Auctions.Add(new Auction
                 {
-                    ModelState.AddModelError("File", "Please Upload Your imgfile");
-                }
-                if (file != null)
-                {
-                    var z = Request.Path;
-                    string extension = Path.GetExtension(file.FileName);
-                    var fileNames = Path.GetFileName(file.FileName);
-                    var guid = Guid.NewGuid().ToString(); //Randomizer filnamnet
+                    AuctionOwner = user,
+                    Title = model.Title,
+                    Description = model.Description,
+                    Picture = picture,
+                    PriceBuyout = model.PriceBuyout,
+                    StartPrice = model.StartPrice,
+                    Category = category,
+                });
 
-                    var path = Path.Combine(Server.MapPath("~/image"), guid + fileNames); // gets the map where you save your pictures
+                rc.SaveChanges();
 
-                    string fl = path.Substring(path.LastIndexOf("\\"));
-                    string[] split = fl.Split('\\');
-                    string newpath = split[1];
-
-                    string imagepath = "~/image/" + newpath;
-                    var title = Request["title"];
-                    int startPrice = Convert.ToInt32(Request["startPrice"]);
-                    var Buyout = Convert.ToInt32(Request["Buyout"]);
-                    var Description = Request["Description"];
-
-                    var auction = RC.Auctions.Add(new Auction
-                    {
-                        //All data is for test. Replace with User input.
-                        AuctionOwner = user,
-                        Title = title,
-                        StartPrice = startPrice,
-                        PriceBuyout = Buyout,
-                        Description = Description,
-                        Picture = imagepath
-                        
-                    });
-                    file.SaveAs(path);
-                    RC.Auctions.Add(auction);
-                    RC.SaveChanges();
-
-
-                }
+                return RedirectToAction("UpploadPicture");        
             }
-            catch (Exception)
-            {
 
-                throw;
-            }
+            var createAuctionViewModel = new CreateAuctionViewModel { Categories = new SelectList(rc.Category.ToList(), "CategoryId", "CategoryName") };
+            return View(createAuctionViewModel);
+        }
+        public string FileSave(HttpPostedFileBase file)
+        {
+            var z = Request.Path;
+            string extension = Path.GetExtension(file.FileName);
+            var fileNames = Path.GetFileName(file.FileName);
+            var guid = Guid.NewGuid().ToString(); //Randomizer filnamnet
+
+            var path = Path.Combine(Server.MapPath("~/image"), guid + fileNames); // gets the map where you save your pictures
+
+            string fl = path.Substring(path.LastIndexOf("\\"));
+            string[] split = fl.Split('\\');
+            string newpath = split[1];
+
+            string imagepath = "~/image/" + newpath;
+
+            file.SaveAs(path);
+
+            return imagepath;
         }
     }
 }
