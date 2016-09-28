@@ -19,7 +19,8 @@ app.config(function ($routeProvider) {
         .when('/mypage', {
             templateUrl: 'angular/views/inlogged/mypage.html'
         })
-        .when('/auctiondetails', {
+        .when('/auctiondetails/:id', {
+            controller: 'auctionDetailsController',
             templateUrl: 'angular/views/inlogged/auctiondetails.html'
         })
         .when('/auctionsinlogged', {
@@ -55,8 +56,6 @@ app.controller("auctionsCtrl", function ($scope, $http) {
         },
         auctionName: ''
     };
-
-
 
     $http.get("/Auctions/GetAuctions")
         .success(function (result) {
@@ -114,7 +113,7 @@ app.controller("auctionsCtrl", function ($scope, $http) {
         document.getElementById(windowid).style.display = "block";
         evt.currentTarget.className += " active";
     }
-    $scope.openTab= function (evt, AuctionID, wind) {
+    $scope.openTab = function (evt, AuctionID, wind) {
         // Declare all variables
         var i, tabcontent, tablinks;
 
@@ -326,7 +325,7 @@ app.controller("adminAuctionsCtrl", function ($scope, $http) {
             })
             .error(function (result) {
                 console.log(result);
-            })    
+            })
 
 
     $scope.selectAuctionById = function (id) {
@@ -370,7 +369,7 @@ app.controller("adminUsersCtrl", function ($scope, $http) {
 
     $scope.userList = [];
     $scope.adminUser = "";
-       
+
 
     $http.get("/Admin/GetUsers")
             .success(function (result) {
@@ -422,4 +421,20 @@ app.controller("adminUsersCtrl", function ($scope, $http) {
             })
     }
 
+});
+
+
+//Auction Details
+//////////////////////////////////////////////////////////////
+app.controller("auctionDetailsController", function ($scope, $http, $routeParams) {
+    
+    $scope.auctionDetails;
+
+    $http.post("/Auctions/GetAuctionDetails", { id: $routeParams.id })
+        .success(function (result) {
+            $scope.auctionDetails = result;
+        })
+        .error(function (result) {
+            console.log(result);
+        })
 });

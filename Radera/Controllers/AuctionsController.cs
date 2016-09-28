@@ -21,6 +21,22 @@ namespace Radera.Controllers
         }
 
         
+        public ActionResult GetAuctionDetails(int id)
+        {
+            RaderaContext RC = new RaderaContext();
+            Auction auctionDetails = RC.Auctions.Where(a => a.AuctionID == id).FirstOrDefault();
+
+
+            var serializedData = JsonConvert.SerializeObject(auctionDetails, Formatting.None,
+                new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                    //ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
+
+            return Content(serializedData, "application/json");
+        }
+
         public ActionResult GetSearchCategories()
         {
             RaderaContext RC = new RaderaContext();
@@ -90,6 +106,7 @@ namespace Radera.Controllers
 
             return Content(serializedData, "application/json");
         }
+
         public ActionResult postComment(string theMessage, Auction thisAuction)
         {
             RaderaContext RC = new RaderaContext();
