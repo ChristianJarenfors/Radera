@@ -229,3 +229,7 @@ ul.tab {
     /*height: 530px;*/
     
 }
+.commentstyle{
+    border-bottom:thin black;
+    border-top:thin black;
+}
