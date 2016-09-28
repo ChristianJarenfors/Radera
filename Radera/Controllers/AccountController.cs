@@ -36,6 +36,18 @@ namespace Radera.Controllers
             RaderaContext RC = new RaderaContext();
             User user = new User();
 
+            if (RC.Users.Any(u => u.Username == Username && u.Password == Password && u.isAdmin == true))
+            {
+                user = RC.Users.Where(u => u.Username == Username).FirstOrDefault();
+
+                Session["isAdmin"] = true;
+                Session["firstName"] = user.FirstName;
+                Session["userId"] = user.UserID;
+
+                return Redirect("/#/admin");
+
+            }
+
             if (RC.Users.Any(u => u.Username == Username && u.Password == Password))
             {
                 user = RC.Users.Where(u => u.Username == Username && u.Password == Password).First();
@@ -57,6 +69,7 @@ namespace Radera.Controllers
             Session["currentUserId"] = "";
             Session["currentUsername"] = "";
             Session["isInlogged"] = false;
+            Session["isAdmin"] = false;
 
             return RedirectToAction("Index", "Home");
 
