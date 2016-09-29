@@ -438,4 +438,5 @@ app.controller("auctionDetailsController", function ($scope, $http, $routeParams
         .error(function (result) {
             console.log(result);
         })
+
 });

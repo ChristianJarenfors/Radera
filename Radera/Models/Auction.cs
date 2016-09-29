@@ -13,7 +13,8 @@ namespace Radera.Models
         public string Picture { get; set; }
         public IList<string> SearchTags { get; set; }
         public int StartPrice { get; set; }
-
+        public int PriceBuyout { get; set; }
+        public int currBid { get; set; }
         public virtual User AuctionOwner { get; set; }
         public virtual IList<Bid> Bids { get; set; }
 

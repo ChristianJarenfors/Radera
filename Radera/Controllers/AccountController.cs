@@ -74,5 +74,36 @@ namespace Radera.Controllers
             return RedirectToAction("Index", "Home");
 
         }
+        [HttpPost]
+        public JsonResult userExist(string username)
+        {
+            RaderaContext RC = new RaderaContext();
+           // var prevUser = RC.Users.Where(p => p.Username == username).FirstOrDefault();
+
+            if (RC.Users.Where(p => p.Username == username).FirstOrDefault() == null)
+            {
+                return Json(false);
+            }
+            else
+            {
+                return Json(true);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult mailExist(string mail)
+        {
+            RaderaContext RC = new RaderaContext();
+            // var prevUser = RC.Users.Where(p => p.Username == username).FirstOrDefault();
+
+            if (RC.Users.Where(p => p.Mail == mail).FirstOrDefault() == null)
+            {
+                return Json(false);
+            }
+            else
+            {
+                return Json(true);
+            }
+        }
     }
 }

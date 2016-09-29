@@ -36,41 +36,130 @@
                         </div>
                     </form>
 
-                    <form id="register-form" action="/Account/Register" method="post" role="form" style="display: none;">
+                    <form name="regform" id="register-form" action="/Account/Register" method="post" role="form" style="display: none;">
+
+                        
                         <div class="form-group">
-                            <input type="text" name="Username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                            <label id="lbluser" for="username"></label>
+                            <input type="text" pattern="^[_A-z0-9]{1,}$" maxlength="15" class="form-control" id="username" name="Username" placeholder="Username" required>
+                            <div />
+                           
                         </div>
-                        <div class="form-group">
-                            <input type="email" name="Mail" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name="Password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="FirstName" tabindex="2" class="form-control" placeholder="First name">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="LastName" tabindex="2" class="form-control" placeholder="Last name">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="City" tabindex="2" class="form-control" placeholder="City">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="Address" tabindex="2" class="form-control" placeholder="Adress">
-                        </div>
-                        <div class="form-group">
-                            <input type="number" name="PhoneNumber" tabindex="2" class="form-control" placeholder="Phone number">
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3">
-                                    <input type="submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                <div class="form-group">
+                                    <label id="lblmail" for="email"></label>
+                                    <input type="email" name="Mail" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+
                                 </div>
-                            </div>
-                        </div>
+                                <div class="form-group">
+                                    <input type="password" name="Password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="FirstName" tabindex="2" class="form-control" placeholder="First name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="LastName" tabindex="2" class="form-control" placeholder="Last name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="City" tabindex="2" class="form-control" placeholder="City" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="Address" tabindex="2" class="form-control" placeholder="Adress" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" name="PhoneNumber" tabindex="2" class="form-control" placeholder="Phone number" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-sm-offset-3">
+                                            <input type="submit" id="register-submit" tabindex="4" class="form-control btn btn-register" disabled value="Register Now">
+                                        </div>
+                                    </div>
+                                </div>
                     </form>
-                </div>
+              </div>
             </div>
         </div>
     </div>
 </div>
+<h1 class="Timer"></h1>
+
+<script>
+    //var start = new Date;
+
+    //setInterval(function () {
+    //    $('.Timer').text(Math.round((new Date - start) / 1000, 0) + " Seconds");
+    //}, 1000);
+
+    var x;
+    var y;
+
+    $(function () {
+        $("#username").keyup(function () {
+            var name = $("#username").val();
+            var status = $("#lbluser");
+            var user = $.trim(name);
+            
+            if (user.length > 3) {
+                status.html("Checking....")
+                $.post("/Account/userExist", { username: name },
+                            function (data) {
+                                if (data == true) {
+                                  //  $('input[type="submit"]').prop('disabled', false);
+                                    status.html("<font color=red>'<b>" + name + "</b>' is not available!</font>");
+                                    y = true;
+                                } else {
+                                    status.html("<font color=green>'<b>" + name + "</b>' is available!</font>");
+                                  
+                                    //  $('input[type="submit"]').prop('disabled', true);
+                                    y = false;
+                                }
+                            });
+            } else {
+                status.html("Need more characters...");
+            }
+        });
+    });
+
+
+    $(function () {
+        $("#email").keyup(function () {
+            var name = $("#email").val();
+            var status = $("#lblmail");
+            var user = $.trim(name);
+          
+            if (user.length > 3) {
+                status.html("Checking....")
+                $.post("/Account/mailExist", { mail: name },
+                            function (data) {
+                                if (data == true) {
+                                    //$('input[type="submit"]').prop('disabled', false);
+                                    status.html("<font color=red>'<b>" + name + "</b>' is not available!</font>");
+                                   
+                                    x = true;
+                                } else {
+
+                                    status.html("<font color=green>'<b>" + name + "</b>' is available!</font>");
+                                    //$('input[type="submit"]').prop('disabled', true);
+                                    x = false;
+                                }
+                            });
+            } else {
+                status.html("Need more characters...");
+            }
+        });
+    });
+
+    $(function () {
+        $("#register-form").change(function () {
+            if (!y && !x) {
+                $('input[type="submit"]').prop('disabled', false);
+            } else {
+                $('input[type="submit"]').prop('disabled', true);
+            }
+
+        });
+        
+    });
+
+ 
+</script>
