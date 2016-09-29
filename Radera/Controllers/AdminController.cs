@@ -88,17 +88,21 @@ namespace Radera.Controllers
 
 
         [HttpPost]
-        public ActionResult UpdateAuction(Auction auction)
+        public ActionResult UpdateAuction(Auction uAuction)
         {
             RaderaContext RC = new RaderaContext();
-            
-            Auction auctionFromRc = RC.Auctions.Where(a => a.AuctionID == auction.AuctionID).FirstOrDefault();
 
-            auctionFromRc.Title = auction.Title;
-            auctionFromRc.AuctionOwner.FirstName = auction.AuctionOwner.FirstName;
-            auctionFromRc.StartPrice = auction.StartPrice;
-            auctionFromRc.Category.CategoryId = auction.Category.CategoryId;
-            auctionFromRc.Description = auction.Description;
+            Category category;
+            category = RC.Category.Where(c => c.CategoryId == uAuction.Category.CategoryId).FirstOrDefault();
+
+
+            Auction auctionFromRc = RC.Auctions.Where(a => a.AuctionID == uAuction.AuctionID).FirstOrDefault();
+
+            auctionFromRc.Title = uAuction.Title;
+            auctionFromRc.AuctionOwner.FirstName = uAuction.AuctionOwner.FirstName;
+            auctionFromRc.StartPrice = uAuction.StartPrice;
+            auctionFromRc.Category = category;
+            auctionFromRc.Description = uAuction.Description;
 
             RC.SaveChanges();
 

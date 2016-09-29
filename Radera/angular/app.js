@@ -340,7 +340,7 @@ app.controller("adminAuctionsCtrl", function ($scope, $http) {
     }
 
     $scope.updateAuction = function (auction) {
-        $http.post("/Admin/UpdateAuction", { auction: auction })
+        $http.post("/Admin/UpdateAuction", { uAuction: auction })
             .success(function (result) {
                 $scope.auctionList = result;
                 $scope.adminAuction = "";
