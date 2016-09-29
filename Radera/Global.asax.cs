@@ -23,6 +23,8 @@ namespace Radera
             Session["currentUserName"] = "";
             ///Logged in or not
             Session["isInlogged"] = false;
+            //Inlogged user is Admin
+            Session["isAdmin"] = false;
         }
     }
 }

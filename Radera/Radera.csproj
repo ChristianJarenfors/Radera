@@ -135,6 +135,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="angular\app.js" />
+    <Content Include="angular\views\admin\adminpage.html" />
+    <Content Include="angular\views\admin\handleusers.html" />
     <Content Include="angular\views\home\about.html" />
     <Content Include="angular\views\home\auctions.html" />
     <Content Include="angular\views\home\contact.html" />
@@ -185,6 +187,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="image\64766bcf-f24f-4b03-86ac-9b8691b94672bild.jpg" />
     <Content Include="image\frontpicture.png" />
     <Content Include="MyScripts\RegisterLogin.js" />
     <Content Include="image\alex.png" />
@@ -233,16 +236,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuctionsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609291100234_123.cs" />
-    <Compile Include="Migrations\201609291100234_123.Designer.cs">
-      <DependentUpon>201609291100234_123.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
@@ -252,6 +252,7 @@
     <Compile Include="Models\RaderaContext.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CreateAuctionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -261,6 +262,8 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Auctions\UpploadPicture.cshtml" />
+    <Content Include="Views\View.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -269,13 +272,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="angular\controllers\" />
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609291100234_123.resx">
-      <DependentUpon>201609291100234_123.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Views\AuctionDetails\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

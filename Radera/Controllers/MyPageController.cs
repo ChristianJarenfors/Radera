@@ -57,6 +57,7 @@ namespace Radera.Controllers
         [HttpPost]
         public ActionResult CreateAuction(Auction newAuction)
         {
+            
             RaderaContext RC = new RaderaContext();
 
             int userId = (int)Session["userId"];
@@ -72,9 +73,8 @@ namespace Radera.Controllers
                 AuctionOwner = user,
                 Title = newAuction.Title,
                 StartPrice = newAuction.StartPrice,
-                PriceBuyout = newAuction.PriceBuyout,
                 Description = newAuction.Description,
-                Category = category
+                Category = category,
             });
 
             RC.Auctions.Add(auction);
@@ -124,7 +124,6 @@ namespace Radera.Controllers
             auctionFromRc.Title = auction.Title;
             auctionFromRc.AuctionOwner.FirstName = auction.AuctionOwner.FirstName;
             auctionFromRc.StartPrice = auction.StartPrice;
-            auctionFromRc.PriceBuyout = auction.PriceBuyout;
             auctionFromRc.Category.CategoryId = auction.Category.CategoryId;
             auctionFromRc.Description = auction.Description;
                         

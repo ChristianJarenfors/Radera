@@ -28,13 +28,13 @@
                     <h3 class="panel-title">{{auction.Title}}</h3>
                 </div>
                 <ul class="tab">
-                    <li><a href="#/auctionsinlogged" class="tablinks" ng-click="openTab(event, auction.AuctionID,'main')">Main</a></li>
-                    <li><a href="#/auctionsinlogged" class="tablinks" ng-click="openTab(event, auction.AuctionID,'comments')">Comments</a></li>
-                    <li><a href="#/auctionsinlogged" class="tablinks" ng-click="openTab(event, auction.AuctionID, 'comment')">Comment</a></li>
+                    <li><a href="#/auctionsinlogged" class="tablinks" ng-click="openTab(event, auction.AuctionID,'main')"><h6>Main</h6></a></li>
+                    <li><a href="#/auctionsinlogged" class="tablinks" ng-click="openTab(event, auction.AuctionID,'comments')"><h6>Comments</h6></a></li>
+                    <li><a href="#/auctionsinlogged" class="tablinks" ng-click="openTab(event, auction.AuctionID, 'comment')"><h6>Comment</h6></a></li>
                 </ul>
                 <div class="panel-body tabcontent" ng-attr-id="{{'main' + auction.AuctionID}}">
                     <div class="form-group">
-                        <center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>
+                        <center><img class="picture" src="{{auction.Picture}}"></center>
                     </div>
                     <div class="form-group">
                         <center><h2 id="time">03:45:05</h2></center>
@@ -43,20 +43,23 @@
                     <div class="form-group"><center>StartPrice : {{auction.StartPrice}}</center></div>
                     <div class="form-group"><center>Bid : {{auction.currBid}}</center></div>
                     <div class="form-group"><center>PriceBuyout : {{auction.PriceBuyout}}</center></div>
-                    <!--<div class="form-group"><center>Description : {{auction.Description}}</center></div>-->
+                    <div class="form-group"><center>Description : {{auction.Description}}</center></div>
                     <div class="form-group"><center>Category : {{auction.Category.CategoryName}}</center></div>
                     <div class="form-group"><center><input class="form-control" type="text" name="bid.BidAmount" ng-model="bid.BidAmount" value="{{bid.BidAmount}}" /></center></div>
 
                     <div class="form-group buttonlay"><input class="btn btn-success" type="submit" value="Bid" name="btnBid" ng-click="placeBid(bid, auction)" /></div>
-                    <div class="form-group buttonlay"><a href="/#/auctiondetails" class="btn btn-success button">Details</a></div>
+                    <!--<div class="form-group buttonlay"><a href="/#/auctiondetails" class="btn btn-success button">Details</a></div>-->
+                    <div class="form-group buttonlay"><a href="/#/auctiondetails/{{auction.AuctionID}}" class="btn btn-success button">Details</a></div>
 
                 </div>
                 <div class="panel-body tabcontent" ng-attr-id="{{'comments' + auction.AuctionID}}">
                     <div class="panel" ng-repeat="comment in auction.Comments">
-                        <div class="row">
-                            <div class="col-lg-2">{{comment.CommentOwner.Username}}</div>
-                            <div class="col-lg-2">{{comment.Date}}</div>
-                            <div class="col-lg-8">{{comment.CommentMessage}}</div>
+                        <div class="row commentstyle">
+                            <div class="col-lg-12">{{comment.Date | date:"dd/MM/yyyy 'at' h:mma"}}</div>
+                        </div>
+                        <div class="row commentstyle">
+                            <div class="col-lg-3">{{comment.CommentOwner.Username}}:</div>
+                            <div class="col-lg-9">{{comment.CommentMessage}}</div>
                         </div>
                     </div>
                 </div>
