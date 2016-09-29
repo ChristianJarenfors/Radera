@@ -243,10 +243,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609280813413_first.cs" />
-    <Compile Include="Migrations\201609280813413_first.Designer.cs">
-      <DependentUpon>201609280813413_first.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\Category.cs" />
@@ -274,11 +270,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\AuctionDetails\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609280813413_first.resx">
-      <DependentUpon>201609280813413_first.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
