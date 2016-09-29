@@ -6,15 +6,12 @@
                 <h1>New Auction</h1>
                 <div class="panel panel-primary col-lg-4 col-md-4 col-sm-5 col-xs-8">
                     <div class="panel-body">
+                        <a href="/Auctions/UpploadPicture">Create Auction</a>                    
                         <div class="form-group">
                             <p>Title:</p><input class="form-control" type="text" name="myAuction.Title" ng-model="myAuction.Title" value="{{myAuction.Title}}" />
                         </div>
                         <div class="form-group">
                             <input class="form-control" type="hidden" name="myAuction.AuctionID" ng-model="myAuction.AuctionID" value="{{myAuction.AuctionID}}" />
-                        </div>
-                        <div class="form-group">
-                            <center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>
-                        </div>
                         <div class="form-group">
                             <p>StartPrice:</p><input class="form-control" type="text" name="myAuction.StartPrice" ng-model="myAuction.StartPrice" value="{{myAuction.StartPrice}}" />
                         </div>
@@ -59,7 +56,6 @@
             <!--<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2" style="padding-bottom:75px;">-->
                 <!--<hr />-->
                 <br />
-            <h1>New Auction</h1>
                 <div class="panel panel-primary panel-heading col-lg-3 col-md-4 col-sm-6 col-xs-8" ng-repeat="auction in myAuctionList">
                     <div class="panel-heading">
                         <h3 class="panel-title">{{auction.Title}}</h3>
@@ -70,7 +66,7 @@
                             <input class="form-control" type="hidden" name="auction.AuctionID" ng-model="auction.AuctionID" value="{{auction.AuctionID}}" />
                         </div>
                         <div class="form-group">
-                            <center><img class="picture" src="http://ecx.images-amazon.com/images/I/51i3AP7DNFL._AC_UL320_SR254,320_.jpg"></center>
+                            <center><img class="picture" src="{{auction.Picture}}"></center>
                         </div>
                         <div class="form-group">
                             <center><h2 id="time">03:45:05</h2></center>
@@ -94,4 +90,5 @@
             <!--</div>-->
         </div>
     </div>
+</div>
 </div>
