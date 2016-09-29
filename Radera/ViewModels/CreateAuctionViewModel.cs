@@ -17,11 +17,7 @@ namespace Radera.ViewModels
         [Required]
         [Display(Name = "Start Price")]
         public int StartPrice { get; set; }
-
-        [Required]
-        [Display(Name = "Buyout Price")]
-        public int PriceBuyout { get; set; }
-
+        
         [Required]
         [Display(Name = "Category")]
         public int CategoryId { get; set; }

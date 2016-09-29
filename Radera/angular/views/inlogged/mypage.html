@@ -14,9 +14,6 @@
                             <div class="form-group">
                                 <p>StartPrice:</p><input class="form-control" type="text" name="myAuction.StartPrice" ng-model="myAuction.StartPrice" value="{{myAuction.StartPrice}}" />
                             </div>
-                            <div class="form-group">
-                                <p>PriceBuyout:</p><input class="form-control" type="text" name="myAuction.PriceBuyout" ng-model="myAuction.PriceBuyout" value="{{myAuction.PriceBuyout}}" />
-                            </div>
                             <label for="categoryId"></label>
                             <div class="form-group">
                                 <label for="categoryId">Selected Category</label>
@@ -73,7 +70,6 @@
                         </div>
                         <div class="form-group"><center>Seller : {{auction.AuctionOwner.FirstName}}</center></div>
                         <div class="form-group"><center>StartPrice : {{auction.StartPrice}}</center></div>
-                        <!--<div class="form-group"><center>PriceBuyout : {{auction.PriceBuyout}}</center></div>-->
                         <div class="form-group"><center>Description : {{auction.Description}}</center></div>
                         <div class="form-group"><center>Category : {{auction.Category.CategoryName}}</center></div>
                         <div>
