@@ -243,9 +243,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609280813413_first.cs" />
-    <Compile Include="Migrations\201609280813413_first.Designer.cs">
-      <DependentUpon>201609280813413_first.cs</DependentUpon>
+    <Compile Include="Migrations\201609291142396_test.cs" />
+    <Compile Include="Migrations\201609291142396_test.Designer.cs">
+      <DependentUpon>201609291142396_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auction.cs" />
@@ -276,8 +276,8 @@
     <Folder Include="Views\AuctionDetails\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609280813413_first.resx">
-      <DependentUpon>201609280813413_first.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609291142396_test.resx">
+      <DependentUpon>201609291142396_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
