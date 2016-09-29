@@ -171,7 +171,6 @@ namespace Radera.Controllers
                     Title = model.Title,
                     Description = model.Description,
                     Picture = picture,
-                    PriceBuyout = model.PriceBuyout,
                     StartPrice = model.StartPrice,
                     Category = category,
                 });

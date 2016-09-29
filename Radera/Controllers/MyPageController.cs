@@ -73,7 +73,6 @@ namespace Radera.Controllers
                 AuctionOwner = user,
                 Title = newAuction.Title,
                 StartPrice = newAuction.StartPrice,
-                PriceBuyout = newAuction.PriceBuyout,
                 Description = newAuction.Description,
                 Category = category,
             });
@@ -125,7 +124,6 @@ namespace Radera.Controllers
             auctionFromRc.Title = auction.Title;
             auctionFromRc.AuctionOwner.FirstName = auction.AuctionOwner.FirstName;
             auctionFromRc.StartPrice = auction.StartPrice;
-            auctionFromRc.PriceBuyout = auction.PriceBuyout;
             auctionFromRc.Category.CategoryId = auction.Category.CategoryId;
             auctionFromRc.Description = auction.Description;
                         

@@ -132,8 +132,7 @@ namespace Radera.Migrations
                 AuctionOwner = context.Users.Where(u => u.Username == "Balin").First(),
                 Picture = "http://edcolor.com/images/Blue%20Bike.jpg",
                 Description = "Finally i have to sell my old precious bike. It's very blue and i love it very much. Hopefully you will too! :)",
-                StartPrice = 150000,
-                PriceBuyout = 300000
+                StartPrice = 150000
             };
             Auction ComfySofa = new Auction
             {
@@ -141,8 +140,7 @@ namespace Radera.Migrations
                 AuctionOwner = context.Users.Where(u => u.Username == "Litos").First(),
                 Picture = "http://www.broadwayfurniture.net/wp-content/uploads/2015/10/Ashley-Bradington-Sofa.gif?3247be",
                 Description = "Finally i have to sell my old precious sofa. It's very comfy and i love it very much. Hopefully you will too! :)",
-                StartPrice = 20000,
-                PriceBuyout = 40000
+                StartPrice = 20000
             };
             Auction FreshNails = new Auction
             {
@@ -150,8 +148,7 @@ namespace Radera.Migrations
                 AuctionOwner = context.Users.Where(u => u.Username == "Toni").First(),
                 Picture = "http://www.carpentrypages.com/images/nails.jpg",
                 Description = "These are some really qualiti nails which are going to make you the finest of homes. Can also be used for carpentry. Buy now!! :)",
-                StartPrice = 200,
-                PriceBuyout = 500
+                StartPrice = 200
             };
             Auction AppleTV = new Auction
             {
@@ -159,8 +156,7 @@ namespace Radera.Migrations
                 AuctionOwner = context.Users.Where(u => u.Username == "Cooly").First(),
                 Picture = "http://www.cutiegadget.com/pict/apple_tv.jpg",
                 Description = "This apparatus will give you a fresh fun time. It fun to watch and if you get hungry you can take a crunch at the exterior. Love it a lot! Buy NOW! :)",
-                StartPrice = 3000,
-                PriceBuyout = 9000
+                StartPrice = 3000
             };
             #endregion
             #region Auctions added

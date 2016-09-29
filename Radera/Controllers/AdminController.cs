@@ -97,7 +97,6 @@ namespace Radera.Controllers
             auctionFromRc.Title = auction.Title;
             auctionFromRc.AuctionOwner.FirstName = auction.AuctionOwner.FirstName;
             auctionFromRc.StartPrice = auction.StartPrice;
-            auctionFromRc.PriceBuyout = auction.PriceBuyout;
             auctionFromRc.Category.CategoryId = auction.Category.CategoryId;
             auctionFromRc.Description = auction.Description;
 
