@@ -68,17 +68,27 @@ namespace Radera.Controllers
                                  where x.AuctionID == thisAuction.AuctionID
                                  select x).Single();
 
+ 
+            var highBid = selectAuction.Bids.OrderByDescending(x => x.BidID)
+                .ThenByDescending(b => b.BidAmount)
+                .Select(g => g.BidAmount).Take(1);
 
-            RC.Bids.Add(new Bid
+         
+            
+          if (nyBid.BidAmount > highBid.FirstOrDefault())
             {
-                BidAmount = nyBid.BidAmount,
-                BidOwner = user,
-                Date = DateTime.Now,
-                ThisAuction = selectAuction
-            });
+                RC.Bids.Add(new Bid
+                {
+                    BidAmount = nyBid.BidAmount,
+                    BidOwner = user,
+                    Date = DateTime.Now,
+                    ThisAuction = selectAuction
+                });
 
-            RC.SaveChanges();
+                selectAuction.currBid = nyBid.BidAmount;
 
+                RC.SaveChanges();
+            }
 
             List<Auction> listOfAuctions = RC.Auctions.ToList();
 
