@@ -239,7 +239,8 @@ app.controller("myAuctionsCtrl", function ($scope, $http) {
     }
 
     $scope.updateAuction = function (auction) {
-        $http.post("/MyPage/UpdateAuction", { auction: auction })
+        debugger;
+        $http.post("/MyPage/UpdateAuction", { uAuction: auction })
             .success(function (result) {
                 $scope.myAuctionList = result;
                 $scope.myAuction = "";
