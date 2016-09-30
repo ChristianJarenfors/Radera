@@ -37,7 +37,7 @@ body {
     color: #eee;
     position: fixed;
     height: 100%;
-    width: 250px;
+    width: 239px;
     overflow: hidden;
     left: 0;
     margin: 0;
@@ -83,12 +83,14 @@ body {
 .navbar-brandstyle {
     margin: 15px 15px 15px 15px;
     font-family: Forte;
-    font-size: 75px;
+    font-size: 70px;
 }
 
 .picture {
     width: 100%;
-    max-height: 150px;
+    height: 150px;
+    width: 230px;
+
 }
 
 #time {
@@ -232,4 +234,17 @@ ul.tab {
 .commentstyle{
     border-bottom:thin black;
     border-top:thin black;
+}
+.auctionRow {
+    margin-bottom: 40px;
+}
+.auctionButton {
+    margin-left: 30px;
+}
+#atrow {
+    margin-bottom: 50px;
+}
+#overflow {
+    overflow-x: auto !important;
+
 }

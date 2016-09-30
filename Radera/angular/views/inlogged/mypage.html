@@ -1,11 +1,10 @@
 ﻿<div class="container">
     <div ng-app="app" ng-controller="myAuctionsCtrl">
         <div class="row">
-            <div class="col-lg-10">
                 <!--class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2">-->
-                <div class="form-group"><a href="/Auctions/UpploadPicture" class="btn btn-success" role="button">Create Auction</a></div>
-                
-                <div class="panel panel-primary col-lg-4 col-md-4 col-sm-5 col-xs-8">
+                <div class="form-group auctionButton"><a href="/Auctions/UpploadPicture" class="btn btn-success" role="button">Create Auction</a></div>            
+                <div class="panel panel-primary col-lg-4 col-md-4 col-sm-5 col-xs-4">
+
                     <div class="panel-body">
                         <div class="form-group">
                             <p>Title:</p><input class="form-control" type="text" name="myAuction.Title" ng-model="myAuction.Title" value="{{myAuction.Title}}" />
@@ -32,6 +31,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
                 <div ng-show="isDetailsAreaVisible" class="col-lg-4 col-md-4 col-sm-5 col-xs-10">
                     <div class="panel-heading">
@@ -48,12 +48,15 @@
                         <br />
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <!--<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2" style="padding-bottom:75px;">-->
-                <!--<hr />-->
+            <div class="row auctionRow">
+                <center>
+                    <h2>My Auctions</h2>
+                </center>
+                <hr />
+           
+
                 <br />
-                <div class="panel panel-primary panel-heading col-lg-3 col-md-4 col-sm-6 col-xs-8" ng-repeat="auction in myAuctionList">
+                <div class="panel panel-primary panel-heading col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="auction in myAuctionList">
                     <div class="panel-heading">
                         <h3 class="panel-title">{{auction.Title}}</h3>
                     </div>
@@ -63,14 +66,14 @@
                             <input class="form-control" type="hidden" name="auction.AuctionID" ng-model="auction.AuctionID" value="{{auction.AuctionID}}" />
                         </div>
                         <div class="form-group">
-                            <center><img class="picture" src="{{auction.Picture}}"></center>
+                            <center><img class="picture img-responsive" src="{{auction.Picture}}"></center>
                         </div>
                         <div class="form-group">
                             <center><h2 id="time">03:45:05</h2></center>
                         </div>
                         <div class="form-group"><center>Seller : {{auction.AuctionOwner.FirstName}}</center></div>
                         <div class="form-group"><center>StartPrice : {{auction.StartPrice}}</center></div>
-                        <div class="form-group"><center>Description : {{auction.Description}}</center></div>
+                        <!--<div class="form-group"><center>Description : {{auction.Description}}</center></div>-->
                         <div class="form-group"><center>Category : {{auction.Category.CategoryName}}</center></div>
                         <div>
                             <center>
