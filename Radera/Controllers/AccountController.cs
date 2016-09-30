@@ -26,7 +26,8 @@ namespace Radera.Controllers
                 RC.SaveChanges();
             }
 
-            return RedirectToAction("Index", "Home");
+            return Redirect("/#/index");
+
 
         }
 

@@ -26,19 +26,28 @@ namespace Radera.Models
                 .HasMany(a => a.UserAuctions)
                 .WithRequired(u => u.AuctionOwner);
 
-            modelBuilder.Entity<User>()
-                .HasMany(b => b.UserBids)
-                .WithRequired(u => u.BidOwner);
+            //Behövs inte eftersom när man plockar bort
+            //User så, tas auktionen bort som i sin tur tar bort kommentarer
+            //modelBuilder.Entity<User>()
+            //    .HasMany(b => b.UserBids)
+            //    .WithRequired(u => u.BidOwner);
 
-            modelBuilder.Entity<User>()
-                .HasMany(c => c.UserComments)
-                .WithRequired(u => u.CommentOwner);
+            //Behövs inte eftersom när man plockar bort
+            //User så, tas auktionen bort som i sin tur tar bort kommentarer
+            //modelBuilder.Entity<User>()
+            //    .HasMany(c => c.UserComments)
+            //    .WithRequired(u => u.CommentOwner)
+            //    .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Auction>()
-                .HasMany(b => b.Bids);
+                .HasMany(b => b.Bids)
+                .WithRequired(b => b.ThisAuction)
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Auction>()
-                .HasMany(c => c.Comments);
+                .HasMany(c => c.Comments)
+                .WithRequired(c => c.CommentAuction)
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Category>()
                 .HasMany(a => a.Auction);
