@@ -1,5 +1,6 @@
 namespace Radera.Migrations
 {
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -10,22 +11,38 @@ namespace Radera.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "Radera.Models.RaderaContext";
         }
 
         protected override void Seed(Radera.Models.RaderaContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            
+            Category cat1 = new Category() { CategoryName = "Trips" };
+            Category cat2 = new Category() { CategoryName = "Clothes" };
+            Category cat3 = new Category() { CategoryName = "Cars" };
+            Category cat4 = new Category() { CategoryName = "Electronics" };
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            User admin = new User() { Username = "admin", Password = "123", isAdmin = true };
+            
+
+            var categories = from c in context.Category
+                            select c;
+
+
+            if (!context.Users.Any(u => u.isAdmin == true))
+            {
+                context.Users.Add(admin);
+            }
+
+            if (categories.Count() == 0)
+            {
+                context.Category.Add(cat1);
+                context.Category.Add(cat2);
+                context.Category.Add(cat3);
+                context.Category.Add(cat4);
+
+                context.SaveChanges();
+            }
         }
     }
 }

@@ -15,7 +15,6 @@ namespace Radera.Models
         public string Gender { get; set; }
         public string City { get; set; }
         public string Mail { get; set; }
-        public int PhoneNumber { get; set; }
         public string Address { get; set; }
         public bool isAdmin { get; set; }
 
